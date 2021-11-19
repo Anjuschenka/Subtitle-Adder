@@ -25,7 +25,7 @@ comment:  This is a small tool, which will help the user to learn how to propper
 -->
 
 # Welcome
-This tool will help you discribing Images, Graphs and Code.<br>
+This tool will help you in describing images, graphs and code.<br>
 For general usability, we would recoment using the Darkmode of Liascript, as this tool has been designed with this colorpattern in mind.
 
 # Image Describer
@@ -44,7 +44,7 @@ Now that we have the general idea of what you want to do, we need the verry obje
 
 For the current itteration of this program, please insert a Link into the inputbox below which is a direct link to an image of what you want to discribe.
 
-Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-goddess-little-pony-mlp-magnaluna.png 
+Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-goddess-little-pony-mlp-magnaluna.png
 
 **Link to your Image:**
 <div id="ImageLinkPlace">if you can see this, the function placeLinkReader() has not loaded propperly... </div>
@@ -63,7 +63,7 @@ Once you have entered everything correctly, a script, generated just for you, sh
 
 <div id="UserTaskPlace">if you can see this, the function userTask() has not worked propperly...</div>
 
-<script modify="false"> 
+<script modify="false">
 setTimeout(function() {
     document.getElementById("UserTaskPlace").innerHTML = "";
     document.getElementById("LaunchButton").onclick = function() {
@@ -109,7 +109,7 @@ Name:
 
 <input id="NameBox" oninput="OnNameChange(this)">
 
-Matrikel Number: 
+Matrikel Number:
 
 <input id="MatBox" oninput="OnNameChange(this)">
 
@@ -118,6 +118,3 @@ Matrikel Number:
 <div id="Printer">If you can see this, the PlacePrinter() function has not loaded propperly...</div>
 
 <script> PlacePrinter() </script>
-
-
-
