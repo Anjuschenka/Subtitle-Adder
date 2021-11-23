@@ -26,7 +26,7 @@ comment:  This is a small tool, which will help the user to learn how to propper
 
 # Welcome
 This tool will help you in describing images, graphs and code.<br>
-For general usability, we would recoment using the Darkmode of Liascript, as this tool has been designed with this colorpattern in mind.
+For general usability, we would recomend using the darkmode of Liascript, as this tool has been designed with this color pattern in mind.
 
 # Image Describer
 
@@ -35,14 +35,14 @@ You can either describe a picture, an graph or a piece of code...
 
 **What do you want to describe:**
 
-<div id="TypeSelectorPlace">if you can see this, the function placeSelect() has not loaded propperly...</div>
+<div id="TypeSelectorPlace">if you can see this, the function placeSelect() has not loaded properly...</div>
 
 <script>placeSelect();</script>
 
 ---
-Now that we have the general idea of what you want to do, we need the verry object you would like to train discribing on.  
+Now that we have the general idea of what you want to do, we need the verry object you would like to train describing on.  
 
-For the current itteration of this program, please insert a Link into the inputbox below which is a direct link to an image of what you want to discribe.
+For the current iteration of this program, please insert a Link into the inputbox below which is a direct link to an image of what you want to describe.
 
 Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-goddess-little-pony-mlp-magnaluna.png
 
@@ -52,8 +52,8 @@ Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-go
 <script>placeLinkReader();</script>
 
 ---
-Some of you may already have started a project earlyer... if that is the case... feel free to open it here...
-<div id="FileReaderPlace">if you can see this, the function placeFileReader() has not worked propperly...</div>
+Some of you may already have started a project earlier... if that is the case... feel free to open it here...
+<div id="FileReaderPlace">if you can see this, the function placeFileReader() has not worked properly...</div>
 
 <script>placeFileReader()</script>
 
@@ -61,7 +61,7 @@ Some of you may already have started a project earlyer... if that is the case...
 
 Once you have entered everything correctly, a script, generated just for you, should display your tasks below.
 
-<div id="UserTaskPlace">if you can see this, the function userTask() has not worked propperly...</div>
+<div id="UserTaskPlace">if you can see this, the function userTask() has not worked properly...</div>
 
 <script modify="false">
 setTimeout(function() {
@@ -84,7 +84,7 @@ setTimeout(function() {
 
 # Last minute edits
 
-<div id="TextEditor">If you can see this, then TextEditor() did not load propperly... </div>
+<div id="TextEditor">If you can see this, then TextEditor() did not load properly... </div>
 
 <script>TextEditor()</script>
 
@@ -103,7 +103,7 @@ If you want to save your work, so you may come back later to it... please press 
 
 ---
 
-If you want to print your work, you can do so below, though maybe add some nice informations like... your name and stuff first :)
+If you want to print your work, you can do so below, though maybe add some nice information like... your name and stuff first :)
 
 Name:
 
@@ -115,6 +115,6 @@ Matrikel Number:
 
 
 
-<div id="Printer">If you can see this, the PlacePrinter() function has not loaded propperly...</div>
+<div id="Printer">If you can see this, the PlacePrinter() function has not loaded properly...</div>
 
 <script> PlacePrinter() </script>
