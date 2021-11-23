@@ -40,9 +40,9 @@ You can either describe a picture, an graph or a piece of code...
 <script>placeSelect();</script>
 
 ---
-Now that we have the general idea of what you want to do, we need the verry object you would like to train describing on.  
+Now that we have the general idea of what you want to do, we need the very object you would like to train describing on.  
 
-For the current iteration of this program, please insert a Link into the inputbox below which is a direct link to an image of what you want to describe.
+For the current iteration of this program, please insert a Link into the input box below which is a direct link to an image of what you want to describe.
 
 Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-goddess-little-pony-mlp-magnaluna.png
 
