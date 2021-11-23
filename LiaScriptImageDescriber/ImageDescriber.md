@@ -26,7 +26,7 @@ comment:  This is a small tool, which will help the user to learn how to propper
 
 # Welcome
 This tool will help you in describing images, graphs and code.<br>
-For general usability, we would recomend using the darkmode of Liascript, as this tool has been designed with this color pattern in mind.
+For general usability, we would recommend using the darkmode of Liascript, as this tool has been designed with this colour pattern in mind.
 
 # Image Describer
 
@@ -47,7 +47,7 @@ For the current iteration of this program, please insert a Link into the input b
 Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-goddess-little-pony-mlp-magnaluna.png
 
 **Link to your Image:**
-<div id="ImageLinkPlace">if you can see this, the function placeLinkReader() has not loaded propperly... </div>
+<div id="ImageLinkPlace">if you can see this, the function placeLinkReader() has not loaded properly... </div>
 
 <script>placeLinkReader();</script>
 
