@@ -1,5 +1,5 @@
-# EnglishImageDescriber
-An website based Image Description too, to teach students how an Image, Graph or ... is described in general.
+# VideoDescriber
+An website based Video Description tool, to support students to add subtitles to a video.
 https://nethiri.github.io/EnglishImageDescriber/
 
 alternative, currently in testing and development:
