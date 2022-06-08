@@ -133,30 +133,11 @@ function MidState() {
 }
 
 function DiscribeMyImage(location) {    
-    location.appendChild(createTextBox("To capture the attention of your readers, you should start with a good introduction phrase(s).<br><br>Here are some examples you may use:<br>If you look at this picture, you will see...<br>In the picture you can see...<br>The picture shows...<br>"));
-    location.appendChild(createTextBox("Now that we have the attention of your reader, and we have a general understanding on what is been displayed, you should start looking at details.<br><br>Here are some examples on how to continue:<br>The image we are looking at has been painted/taken at...<br>When you look at the image, you can see that it is a black and white...<br>This picture is a... picture and has been taken by...<br>"));
-    location.appendChild(createTextBox("Okay... we should now have finished the introduction of your description.<Br><Br>So, now please describe the picture and use phrases like:<br>In the foreground of the picture you will...<Br>In the background you can see that...<Br>In the right/left/center...<br>Between ... there is ...<br>At the top/At the bottom there is...<br>"));
-    location.appendChild(createTextBox("Now we know what we see on the picture. Lets focus now on who is doing what or what is going on.<br><br>To take some examples:<br>The... is talking to...<br>... is gesturing to...<br>"));
-    location.appendChild(createTextBox("So, that all is fine and dandy, lets now focus on what you are thinking... What do you think is the meaning of the picture?<br><br>Here are some examples:<br>It seems as if...<br>... might be a simbole of ... because...<br>I (don't) like ... because<br>... makes me think of ...<br>"));
+    location.appendChild(createTextBox("To capture the attention of your readers, you should start with a good introduction phrase(s).<br><br>Here are some examples you may use:<br>This experiment is an example of...<br>The experiment simulates...<br>In the experiment there ar forming...<br>"));
+    location.appendChild(createTextBox("Now that we have the attention of your watcher, and we have a general understanding on what is been displayed, you should start looking the description of what is happening.<br><br>Here are some examples on how to continue:<br>First you put a bit of ... in a...<br>You need ... which you put / heat / ...<br>"));
+    location.appendChild(createTextBox("So now comes the most important thing of the experiment: What is dangerous within the experiment? So what do you especially have to look at?.<Br><Br>You can use phrases like:<br>The most dangerous chemical is ... which can ...<Br>You need to be careful at the point ... because ...<Br>Another dangerous chemical / step is ...<br>"));
 }
 
-function DiscribeMyGraph(location) {
-    location.appendChild(createTextBox("To capture the attention of your readers, you should start with a good introduction phrase(s).<br><br>Here are some examples you may use:<br>Let me show you this bar graph...<br>Let's turn to this diagram...<br>I'd like you to look at this map...<br>"));
-    location.appendChild(createTextBox("Now that we have the attention of your reader, and we have a general understanding of what has been displayed, you should start looking at details.<br><br>Here are some examples on how to continue:<br>The graph we are looking at has been published by...<br>The vertical axis shows...<br>Ther horizontal axis shows..."));
-    location.appendChild(createTextBox("Okay... we should now have finished the introduction of your description.<br><br>Consider phrases like:<br>So, now please describe what you see and the meaning of the information displayed.<br>Each number are equivalent to 1 million...<br>The ... rises/increased/decreased/flattens...<br>The graph rapidly..."));
-    location.appendChild(createTextBox("Okay... lets bring that baby home guys. Let us finish with the conclusion, and we are done here!<br><br>Here are some examples to use:<br>Overall, we can see that...<br>In the end, you'll see...<br>From this we can conclude...<br>"));
-}
-
-function DiscribeMyCode(location) {
-    location.appendChild(createTextBox("Code descriptions are a bit more unorthodox than normal image descriptions.<br>So, what do we have to look for in a code description?<br><br>First of all, we have to figure out the context of this code...<br><br>Here are some examples which may help you to do just that:<br>Looking at the code(snipped) as a whole, you can see that...<br>This code(snipped) has been written in...<br>This code(snipped) is a [...] which returns a..."));
-    location.appendChild(createTextBox("What is this code all about?<br>Describe what you think it is used for, or where you have found it...<br><br>Some helpful examples:<br>The [...] uses this [...] for...<br>One might need this in...<br>When you are [...] you might need a function like this to..."));
-    location.appendChild(createTextBox("Okay, furthermore, now its time to look at the code in more detail. What can you see?<br>This might be achievable by looking at it line by line...<br><br>Here are some examples which might help you:<br>In the first line you can see that it is a call to a...<br>In Line [...] you can see, that variable [...] is defined with...<br>In the next line, the previouly defined [...] is used for..."));
-    location.appendChild(createTextBox("Code is never perfect... have you spotted a mistake? Would this code run at all, or would the compiler just throw a warning?<br>Let's write about it, and remember 'Be the compiler'<br><br>Here are some examples which might help:<br>In Line [...], the pointer to the variable [...] is used instead of the...<br>The line has not been completed and there is a [...] missing at the end.<br>The [...] of the function [...] is undefined."));
-
-}
-//todo
-// code fragment discription?
-// ask zug?
 function loadImage(link) { // todo
     if(!link){
         alert("Please insert a Link into the Textbox to proceed.");
@@ -200,9 +181,7 @@ function LastState() {
     row.appendChild(colum2);
     table.appendChild(row);
     div.appendChild(table);    
-    
-    
-    //colum1.appendChild(TheImage);
+
     if(HumanInformationData === undefined){
         HumanInformationData = {
             "title": "_ please fill in information _",
@@ -217,11 +196,6 @@ function LastState() {
     TheImage.style = "display: block; margin-right: auto;"
     TheImage.className = "image";
     div.appendChild(DisplayText(TheText));
-    // todo: Pring Button... back? I guess?
-    
-
-
-
 
     let btn = document.createElement("button");
     btn.innerHTML = "Print";
@@ -352,7 +326,6 @@ function HumanInformation(data) {
     ret.appendChild(line6);
     return ret;
 }
-
 
 function createClickableLine(fixedSpan, inputSpan, editable, toPrint, writebackFunction) {
     let ret = document.createElement("div");
