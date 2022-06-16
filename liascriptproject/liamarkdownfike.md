@@ -30,23 +30,11 @@ The application will help you add spoken text to a video without text.
 https://i.pinimg.com/originals/38/b0/c7/38b0c7ff528df3d3f8f5e2799d507063.jpg
 <lia-keep></br></br></br></lia-keep>
 
-* **If you already have an ongoing project though, you'd probably want to reload where you left of... please do so below**
-<lia-keep> <span id="LoadProject"></span> </lia-keep> 
-
-<script input="hidden"> PageOneScript() </script>
-
-
-
 # Image Description
 Let's see... your Image should be displayed below:
 
-
 <lia-keep><img id="ImageLocation"></lia-keep>
 <script input="hidden"> insertImage() </script>
-
-* If not, please make sure you finish the "Image Import" Page of this presentation 
-
-
 
 ## Image Description Part 1:
 <img id="ImageLocation">
