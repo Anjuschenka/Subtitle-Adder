@@ -25,11 +25,9 @@ comment:  Try to write a short comment about
 # Image Import
 The application will help you add spoken text to a video without text.
 
-(https://i.pinimg.com/originals/38/b0/c7/38b0c7ff528df3d3f8f5e2799d507063.jpg)
-
 * Now, please insert the link into the textbox below:
 <lia-keep><span id="LoadImage"></span></lia-keep>
-
+https://i.pinimg.com/originals/38/b0/c7/38b0c7ff528df3d3f8f5e2799d507063.jpg
 <lia-keep></br></br></br></lia-keep>
 
 * **If you already have an ongoing project though, you'd probably want to reload where you left of... please do so below**
