@@ -25,13 +25,10 @@ comment:  This is a small tool, which will help the user to learn how to propper
 -->
 
 # Welcome
-This tool will help you in describing images, graphs and code.<br>
+This tool will help you add spoken text to a video.<br>
 For general usability, we would recommend using the darkmode of Liascript, as this tool has been designed with this colour pattern in mind.
 
-# Image Describer
-
-To begin your describing adventures you need to figure out what you want to describe.
-You can either describe a picture, an graph or a piece of code...
+# Video Describer
 
 **What do you want to describe:**
 
@@ -40,8 +37,6 @@ You can either describe a picture, an graph or a piece of code...
 <script>placeSelect();</script>
 
 ---
-Now that we have the general idea of what you want to do, we need the very object you would like to train describing on.  
-
 For the current iteration of this program, please insert a Link into the input box below which is a direct link to an image of what you want to describe.
 
 Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-goddess-little-pony-mlp-magnaluna.png
@@ -50,12 +45,6 @@ Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-go
 <div id="ImageLinkPlace">if you can see this, the function placeLinkReader() has not loaded properly... </div>
 
 <script>placeLinkReader();</script>
-
----
-Some of you may already have started a project earlier... if that is the case... feel free to open it here...
-<div id="FileReaderPlace">if you can see this, the function placeFileReader() has not worked properly...</div>
-
-<script>placeFileReader()</script>
 
 ---
 
