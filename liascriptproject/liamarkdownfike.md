@@ -23,9 +23,9 @@ comment:  Try to write a short comment about
 -->
 
 # Image Import
-The application will help you learn how to propperly describe an image. In order to use this tool, please insert a link to an image you'd like to describe below:
+The application will help you add spoken text to a video without text.
 
-You may find such a link by copying the direct image parth to it from a website (Example: https://i.pinimg.com/originals/38/b0/c7/38b0c7ff528df3d3f8f5e2799d507063.jpg )
+(https://i.pinimg.com/originals/38/b0/c7/38b0c7ff528df3d3f8f5e2799d507063.jpg)
 
 * Now, please insert the link into the textbox below:
 <lia-keep><span id="LoadImage"></span></lia-keep>
@@ -50,7 +50,7 @@ Let's see... your Image should be displayed below:
 
 
 
-## Image Discription Part 1:
+## Image Description Part 1:
 <img id="ImageLocation">
 
 <div id="Task1"></div>
@@ -60,7 +60,7 @@ Let's see... your Image should be displayed below:
 <script input="hidden"> insertImage() </script>
 <script input="hidden"> PageDescriptionScript("DescrPart1", ProgramSelect, 0, "Task1") </script>
 
-## Image Discription Part 2:
+## Image Description Part 2:
 <img id="ImageLocation">
 
 <div id="Task2"></div>
@@ -70,7 +70,7 @@ Let's see... your Image should be displayed below:
 <script input="hidden"> insertImage() </script>
 <script input="hidden"> PageDescriptionScript("DescrPart2", ProgramSelect, 1, "Task2") </script>
 
-## Image Discription Part 3:
+## Image Description Part 3:
 <img id="ImageLocation">
 
 <div id="Task3"></div>
@@ -80,7 +80,7 @@ Let's see... your Image should be displayed below:
 <script input="hidden"> insertImage() </script>
 <script input="hidden"> PageDescriptionScript("DescrPart3", ProgramSelect, 2, "Task3") </script>
 
-## Image Discription Part 4:
+## Image Description Part 4:
 <img id="ImageLocation">
 
 <div id="Task4"></div>
@@ -90,7 +90,7 @@ Let's see... your Image should be displayed below:
 <script input="hidden"> insertImage() </script>
 <script input="hidden"> PageDescriptionScript("DescrPart4", ProgramSelect, 3, "Task4") </script>
 
-## Image Discription Part 5:
+## Image Description Part 5:
 <img id="ImageLocation">
 
 <div id="Task5"></div>
