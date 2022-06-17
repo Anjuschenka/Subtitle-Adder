@@ -94,7 +94,7 @@ If you want to save your work, so you may come back later to it... please press 
 
 If you want to print your work, you can do so below, though maybe add some nice information like... your name and stuff first :)
 
-Name:
+Name: Niclas
 
 <input id="NameBox" oninput="OnNameChange(this)">
 
