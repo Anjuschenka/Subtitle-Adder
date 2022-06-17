@@ -42,10 +42,10 @@ For the current iteration of this program, please insert a Link into the input b
 Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-goddess-little-pony-mlp-magnaluna.png
 
 **Link to your Image:**
-//<div id="ImageLinkPlace">if you can see this, the function placeLinkReader() has not loaded properly... </div>
-https://video.tu-freiberg.de/channel/video/Dichromatvulkan/c49c659861d64aa2c74bc20540819db0/13
-//<script>placeLinkReader();</script>
+<div id="ImageLinkPlace">if you can see this, the function placeLinkReader() has not loaded properly... </div>
 
+<script>placeLinkReader();</script>
+https://video.tu-freiberg.de/channel/video/Dichromatvulkan/c49c659861d64aa2c74bc20540819db0/13
 ---
 
 Once you have entered everything correctly, a script, generated just for you, should display your tasks below.
