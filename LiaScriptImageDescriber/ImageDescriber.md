@@ -37,7 +37,7 @@ For general usability, we would recommend using the darkmode of Liascript, as th
 <script>placeSelect();</script>
 
 ---
-For the current iteration of this program, please insert a Link into the input box below which is a direct link to an image of what you want to describe.
+For the current iteration of this program, below you find your first experimental video.
 
 Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-goddess-little-pony-mlp-magnaluna.png
 
