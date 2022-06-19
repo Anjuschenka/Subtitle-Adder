@@ -29,26 +29,9 @@ This tool will help you add spoken text to a video.<br>
 For general usability, we would recommend using the darkmode of Liascript, as this tool has been designed with this colour pattern in mind.
 
 # Video Describer
+For the current iteration of this program, below you find your first experimental video to which you shall add the text.
 
-**What do you want to describe:**
-
-<div id="TypeSelectorPlace">if you can see this, the function placeSelect() has not loaded properly...</div>
-
-<script>placeSelect();</script>
-
----
-For the current iteration of this program, below you find your first experimental video.
-
-Here is an example Link: https://www.seekpng.com/png/detail/176-1761248_elder-goddess-little-pony-mlp-magnaluna.png
-
-**Link to your Image:**
-<div id="ImageLinkPlace">if you can see this, the function placeLinkReader() has not loaded properly... </div>
-
-<script>placeLinkReader();</script>
-!?[video](https://video.tu-freiberg.de/channel/video/Dichromatvulkan/c49c659861d64aa2c74bc20540819db0/13)
----
-
-Once you have entered everything correctly, a script, generated just for you, should display your tasks below.
+ <iframe src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=30" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
 <div id="UserTaskPlace">if you can see this, the function userTask() has not worked properly...</div>
 
