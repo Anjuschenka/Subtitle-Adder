@@ -1,10 +1,9 @@
 const userTasks = {}
 
 userTasks.graph = function() {
-    let url = document.getElementById("LinkTextBox").value;
     return `
 ---------
-![](${url})
+
 
 Task - Attention  
 ================
