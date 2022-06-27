@@ -1,9 +1,9 @@
 <!--
-author:   Naumann Marco
+author:   Anja Voigt
 
-email:    marconaumann@t-online.de
+email:    anjvoi1@web.de
 
-version:  0.0.2
+version:  0.0.1
 
 language: en
 
@@ -30,10 +30,10 @@ For the current iteration of this program, below you find your first experimenta
 
  <iframe src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=30" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
-Task - Attention  
+Task 1 - Attention  
 ================
         
-To capture the attention of your readers, you should start with a good introduction phrase(s). <br/>
+To capture the attention of your watchers, you should start with a good introduction phrase. <br/>
 Here are some examples you may use:
 
 * If you look at this picture, you will see...
