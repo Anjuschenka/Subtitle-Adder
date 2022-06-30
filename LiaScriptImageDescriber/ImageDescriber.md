@@ -41,6 +41,7 @@ Here are some examples you may use:
 * In this video you can see ...
             
 <textarea id="graphTextArea1" oninput="TBonChange(this)">Please enter text here!</textArea>
+<Textanalysis.TIME id="SpeakingTime"></Textanalysis.TIME>
 <br/>
 <br/>
 
@@ -67,9 +68,15 @@ When the experiment starts, you should tell the watcher what is happening during
 * Then ... is added to ...
 * The mixture is heated over a bunsen burner / in an oil bath over a heating plate / ...
 
-<textarea id="graphTextArea3" oninput="TBonChange(this)">Please enter text here!</textArea>
+<textarea id="graphTextArea3" oninput="TBonChange(this)" onchange="update()">Please enter text here!</textArea>
 <br/>
 <br/>
+
+<div id="speak" >
+    Reading time:
+</div>
+
+
 
 Task - Details
 ==============
