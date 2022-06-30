@@ -33,65 +33,57 @@ For the current iteration of this program, below you find your first experimenta
 Task 1 - Attention  
 ================
         
-To capture the attention of your watchers, you should start with a good introduction phrase. <br/>
+To capture the attention of your watchers, you should introduce your watchers into the topic. <br/>
 Here are some examples you may use:
 
-* If you look at this picture, you will see...
-* In the picture you can see...   
-* The picture shows... 
+* The experiment shown in this video...
+* This videos shows ...
+* In this video you can see ...
             
 <textarea id="graphTextArea1" oninput="TBonChange(this)">Please enter text here!</textArea>
+<br/>
+<br/>
+
+Task - Introduction
+==============
+
+Now that we have the attention of your watchers, you should give a few more details about the experiment. You might say something about certain safety instructions, about the used substances or about an imagethe reaction looks like. <br/>
+Here are some examples on how to continue:
+
+* During the experiment you should especially be careful about...
+* The reaction is a typical example of ... and is used for ...
+* The reaction shows a typical characteristic of the (substance) that ...
+
+<textarea id="graphTextArea2" oninput="TBonChange(this)">Please enter text here!</textArea>
+<br/>
+<br/>
+
+Task - Execution
+==============
+
+When the experiment starts, you should tell the watcher what is happening during the experiment. You can use phrases like
+
+* Some (subtance) is put into / on ... by ...
+* Then ... is added to ...
+* The mixture is heated over a bunsen burner / in an oil bath over a heating plate / ...
+
+<textarea id="graphTextArea3" oninput="TBonChange(this)">Please enter text here!</textArea>
 <br/>
 <br/>
 
 Task - Details
 ==============
 
-Now that we have the attention of your reader, and we have a general understanding on what is been displayed, you should start looking at details. <br/>
-Here are some examples on how to continue:
-
-* The image we are looking at has been painted/taken at...
-* When you look at the image, you can see that it is a black and white...
-* This picture is a... picture and has been taken by...
-
-<textarea id="graphTextArea2" oninput="TBonChange(this)">Please enter text here!</textArea>
-<br/>
-<br/>
-
-Okay... we should now have finished the intorduction of your discription. <br/>
-So, now please describe the picture and use phrases like:
-
-* In the foreground of the picture you will...
-* In the background you can see that...
-* In the right/left/center...
-* Between ... there is...
-* At the top/At the bottom there is...
-
-<textarea id="graphTextArea3" oninput="TBonChange(this)">Please enter text here!</textArea>
-<br/>
-<br/>
-
-Now we know what we see on the picture. Let's focus now on who is doing what or what is going on. <br/>
-To take some examples: <br/>
-
-* The... is talking to...
-* ... is gesturing to...
+Now that your watchers have seen the experiment, you should tell a few more details about substances or history of the experiment itself. But try to be brief. Yor text shall fit to the length of the video.
 
 <textarea id="graphTextArea4" oninput="TBonChange(this)">Please enter text here!</textArea>
 <br/>
 <br/>
 
-Task-Your Opinion
+Task - End
 =================
 
-So, that all is fine and dandy, lets now focus on what you are thinking... <br/>
-What do you think is the meaning of the picture? <br/>
-Here are some examples: <br/>
-
-* It seems as if...
-* ... might be a symbol of ... because...
-* I (don't) like ... because
-* ... makes me think of ...
+At the absolute end of the video you can add your opinion on the experiment and thank for your watchers' interest.
 
 <textarea id="graphTextArea5" oninput="TBonChange(this)">Please enter text here!</textArea>
 <br/>
