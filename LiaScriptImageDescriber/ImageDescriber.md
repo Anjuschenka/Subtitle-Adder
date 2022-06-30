@@ -41,7 +41,6 @@ Here are some examples you may use:
 * In this video you can see ...
             
 <textarea id="graphTextArea1" oninput="TBonChange(this)">Please enter text here!</textArea>
-<Textanalysis.TIME id="SpeakingTime"></Textanalysis.TIME>
 <br/>
 <br/>
 

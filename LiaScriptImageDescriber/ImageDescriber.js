@@ -4,13 +4,13 @@ let ImgUrlLink = undefined;
 let intervallRunning = 0;
 
 function update(){
-
     let sp = document.getElementById("speak");
     let textDiv = document.getElementById("graphTextArea3");
     let text = textDiv.innerHTML;
     alert(text);
     sp.innerHTML=Textanalysis("speakingtime", text);
     console.log(Textanalysis("speakingtime", text));
+    console.log(typeof(text));
 }
 
 function placeSelect() {
