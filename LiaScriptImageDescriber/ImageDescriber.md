@@ -28,12 +28,35 @@ comment:  This is a small tool, which will help the user to learn how to propper
 # Video Describer
 The goal of this short LiaScript-Course is to add the subtitles to a given video. In this first version you can follow the given structure. Under each text box you can see how long reading your text aloud would take. You should try to fit your text to the video so that it is not longer than the video and the texts fit to the actual video part.
 
- <iframe src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=30" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+ <iframe src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+
+Important vocabulary
+================
+
+Here are some words you may need for the following tasks:
+
+* ammonium dichromate
+* ammonia
+* nitrogen
+* powder
+* solid
+* gas
+* sparks
+* to sparkle
+* to burn
+* chrome(VI/III) oxide
+* fireproof bowl
+* carcinogenic
+* dissociation
+* apparatus
+* to ignite
+* to oxidize
+* to reduce
 
 Task 1 - Attention  
 ================
         
-To capture the attention of your watchers, you should introduce your watchers into the topic. <br/>
+To capture the attention of your watchers, you should introduce them into the topic. <br/>
 Here are some examples you may use:
 
 * The experiment shown in this video...
@@ -74,7 +97,6 @@ When the experiment starts, you should tell the watcher what is happening during
 <div id="speak" >
     Reading time:
 </div>
-
 
 
 Task - Details
