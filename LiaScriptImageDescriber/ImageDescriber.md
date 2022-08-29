@@ -9,13 +9,13 @@ language: en
 
 narrator: US English Female
 
-script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/ImageDescriberFunctions.js
-script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/ImageDescriber.js
-script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/userTasks.js
+script: /LiaScriptImageDescriber/ImageDescriberFunctions.js
+script: /LiaScriptImageDescriber/ImageDescriber.js
+script: /LiaScriptImageDescriber/userTasks.js
 script: https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js
 
-link: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/style.css
-link: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/print.css
+link: /LiaScriptImageDescriber/style.css
+link: /LiaScriptImageDescriber/print.css
 
 script: https://cdn.jsdelivr.net/gh/kaptn-seebar/english-lia@latest/base.js
 import: https://raw.githubusercontent.com/liaTemplates/TextAnalysis/main/README.md
