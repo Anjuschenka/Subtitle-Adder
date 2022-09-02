@@ -102,20 +102,6 @@ function TextEditor() {
     }
 }
 
-function Speaking(text) {
-    document.addEventListener('DOMContentLoaded', Textanalysis("speakingtime", text) {
-        let SButton = document.createElement('button');
-        SButton.type = 'button';
-        SButton.innerHTML = 'Press me';
-        SButton.className = 'btn-styled';
- 
-        button.onclick = Textanalysis("speakingtime", text);
- 
-        let container = document.getElementById('container');
-        container.appendChild(button);
-    }, false);
-}
-
 function TextCompress() {
     let str = "";
     let keys = Object.keys(TBcontent);
