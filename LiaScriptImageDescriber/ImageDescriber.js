@@ -3,6 +3,10 @@ let NameContent = {};
 let ImgUrlLink = undefined;
 let intervallRunning = 0;
 
+function debug(){
+    console.log("DEBUG");
+}
+
 function update(){
     let sp = document.getElementById("speak");
     let textDiv = document.getElementById("graphTextArea3");
@@ -84,7 +88,7 @@ function TextEditor() {
     for(let k of keys) {
         let textDiv = document.createElement("div");
         textDiv.innerHTML = TBcontent[k];
-        textDiv.ondblclick = function() {
+        textDiv.onclick = function() {
             textDiv.innerHTML = "";
             let editor = document.createElement("textarea");
             editor.value = TBcontent[k];
@@ -100,6 +104,41 @@ function TextEditor() {
         }
         placediv.appendChild(textDiv);
     }
+}
+
+/*function PlaceSpeak(txt) {
+    let txtdiv = document.createElement("div");
+    txtdiv.value = Textanalysis("speakingtime", txt);
+    txtdiv.id = "SpeakDiv";
+}*/
+
+function PlaceSpeak(id) {
+    if(document.getElementById(id).lastChild!=null) console.log(document.getElementById(id).lastChild.nodeType)
+    //if(document.getElementById(id).hasChildNodes()) return;
+
+    console.log(id)
+    document.getElementById(id).innerText = "";
+
+    let btn2 = document.createElement("button");
+    btn2.innerHTML = "Speaking Time";
+    let newDiv = document.createElement("div");
+    
+    newDiv.id=id + "SpeakingTime";
+    
+    document.getElementById(id).appendChild(newDiv);
+
+    btn2.onclick = function() {
+        console.log(id + "TextArea")
+        let txt = document.getElementById(id + "TextArea").value;
+        console.log("Speaking time is calculated for:");
+        console.log(txt);
+        let text = Textanalysis("speakingtime", txt);
+        console.log(text);
+        document.getElementById(id + "SpeakingTime").innerHTML=text;
+       
+        
+    }
+    document.getElementById(id).appendChild(btn2);
 }
 
 function TextCompress() {

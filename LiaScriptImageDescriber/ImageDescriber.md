@@ -64,16 +64,11 @@ Here are some examples you may use:
 * This videos shows ...
 * In this video you can see ...
             
-<textarea id="graphTextArea1" oninput="TBonChange(this)">Please enter text here!</textArea>
+<textarea id="AttentionTextArea" oninput="TBonChange(this)">Please enter text here!</textArea>
 
-<button id="Btn1">Speaking Time</button>
+<div id="Attention">If you can see this, the PlacePrinter() function has not loaded properly...</div>
 
-<script>
-    let txt1 = document.getElementById("graphTextArea1").value;
-    function f1() {return Textanalysis("speakingtime", txt1);}
-    let btn1 = document.getElementById("Btn1");
-    btn1.onclick = f1();
-</script>
+<script> PlaceSpeak("Attention") </script>
 
 Task - Introduction
 ==============
@@ -85,15 +80,11 @@ Here are some examples on how to continue:
 * The reaction is a typical example of ... and is used for ...
 * The reaction shows a typical characteristic of the (substance) that ...
 
-<textarea id="graphTextArea2" oninput="TBonChange(this)">Please enter text here!</textArea>
-
-<button id="Btn2">Speaking Time</button>
+<textarea id="IntroductionTextArea" oninput="TBonChange(this)">Please enter text here!</textArea>
+<div id="Introduction"></div>
 
 <script>
-    let txt2 = document.getElementById("graphTextArea2").value;
-    function f2() {return Textanalysis("speakingtime", txt2);}
-    let btn2 = document.getElementById("Btn2");
-    btn2.onclick = f2();
+    PlaceSpeak("Introduction");
 </script>
 
 Task - Execution
@@ -105,15 +96,16 @@ When the experiment starts, you should tell the watcher what is happening during
 * Then ... is added to ...
 * The mixture is heated over a bunsen burner / in an oil bath over a heating plate / ...
 
-<textarea id="graphTextArea3" oninput="TBonChange(this)" onchange="console.log(update(this.innerHTML))">Please enter text here!</textArea>
+<textarea id="ExecutionTextArea" oninput="TBonChange(this)" onchange="console.log(update(this.innerHTML))">Please enter text here!</textArea>
 
-<button id="Btn3">Speaking Time</button>
+<div id="Execution"></div>
 
 <script>
-    let txt3 = document.getElementById("graphTextArea3").value;
-    function f3() {return Textanalysis("speakingtime", txt3);}
-    let btn3 = document.getElementById("Btn3");
-    btn3.onclick = f3();
+    PlaceSpeak("Execution");
+    //let txt3 = document.getElementById("graphTextArea3").value;
+    //function f3() {return Textanalysis("speakingtime", txt3);}
+    //let btn3 = document.getElementById("Btn3");
+    //btn3.onclick = f3();
 </script>
 
 Task - Details
@@ -121,15 +113,16 @@ Task - Details
 
 Now that your watchers have seen the experiment, you should tell a few more details about substances or history of the experiment itself. But try to be brief. Yor text shall fit to the length of the video.
 
-<textarea id="graphTextArea4" oninput="TBonChange(this)">Please enter text here!</textArea>
+<textarea id="DetailsTextArea" oninput="TBonChange(this)">Please enter text here!</textArea>
 
-<button id="Btn4">Speaking Time</button>
+<div id="Details"></div>
 
 <script>
-    let txt4 = document.getElementById("graphTextArea4").value;
+    PlaceSpeak("Details");
+    /*let txt4 = document.getElementById("graphTextArea4").value;
     function f4() {return Textanalysis("speakingtime", txt4);}
     let btn4 = document.getElementById("Btn4");
-    btn4.onclick = f4();
+    btn4.onclick = f4();*/
 </script>
 
 Task - End
@@ -137,15 +130,16 @@ Task - End
 
 At the absolute end of the video you can add your opinion on the experiment and thank for your watchers' interest.
 
-<textarea id="graphTextArea5" oninput="TBonChange(this)">Please enter text here!</textArea>
+<textarea id="EndTextArea" oninput="TBonChange(this)">Please enter text here!</textArea>
 
-<button id="Btn5">Speaking Time</button>
+<div id="End"></div>
 
 <script>
-    let txt5 = document.getElementById("graphTextArea5").value;
+    PlaceSpeak("End");
+    /*let txt5 = document.getElementById("graphTextArea5").value;
     function f5() {return Textanalysis("speakingtime", txt5);}
     let btn5 = document.getElementById("Btn5");
-    btn5.onclick = f5();
+    btn5.onclick = f5();*/
 </script>
 
 # Text Analysis
@@ -153,7 +147,25 @@ At the absolute end of the video you can add your opinion on the experiment and 
 On this page, you shall have an automated evaluation of your text below:
 <div id="TestPlace"></div>
 
-<script> PlaceTest() </script>
+<script>  
+        let array = Array.of("Attention", "Introduction", "Execution", "Details", "End");
+        let fullText ="";
+        for(let i=0; i<4; i++){
+            
+            let currID = array[i] + "TextArea";
+            console.log(currID)
+            
+            if(!(document.getElementById(currID) == null)) fullText += document.getElementById(currID).value;
+            
+            console.log(currID)
+        }
+        
+        console.log("Speaking time is calculated for:");
+        console.log(fullText);
+        let text = Textanalysis("speakingtime", fullText);
+        console.log(text);
+        document.getElementById("TestPlace").innerHTML=text;
+</script>
 
 # Print / Save it!
 
