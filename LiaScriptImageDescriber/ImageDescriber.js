@@ -200,7 +200,7 @@ function PlacePrinter() {
 }
 
 function PrintDocument() {
-    let div_to_print = document.createElement("div");
+   /* let div_to_print = document.createElement("div");
     let table = document.createElement("table");
     let tableRow1 = document.createElement("tr");
     //table row 1:
@@ -255,7 +255,7 @@ function PrintDocument() {
     document.body.innerHTML = printContent;
     window.print();
     document.body.innerHTML = orginalContents;
-    PlacePrinter();
+    //PlacePrinter(); */
 }
 
 function PlaceSaver() {
