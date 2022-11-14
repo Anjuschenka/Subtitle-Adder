@@ -514,10 +514,47 @@ function PrintDocument() {
 
     PlacePrinter();
   </script>
-    	
 
+# Play Video with Subtitles
 
+<iframe src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
+<script>
+    let Paragraph = class {
+        constructor(text, time) {
+            this.text = text;
+            this.time1 = time1;
+            this.time2 = time2;
+        }
+    };
+//console.log(Paragraph.name);
+Text_Attention = getElementById("Attention").value;
+Speak_Attention = Textanalysis("speakingtime", Text_Attention);
+//Time_Attention bitte aus Speak_Attention herausfiltern als Sekunden
+//Time1_Attention = 0;
+//Time2_Attention = Time1_Attention + Time_Attention;
+Text_Introduction = getElementById("Introduction").value;
+Speak_Introduction = Textanalysis("speakingtime", Text_Introduction);
+//Time_Introduction bitte aus Speak_Introduction herausfiltern als Sekunden
+//Time1_Introduction = Time2_Attention;
+//Time2_Introduction = Time1_Introduction + Time_Introduction;
+Text_Execution = getElementById("Execution").value;
+Speak_Execution = Textanalysis("speakingtime", Text_Execution);
+//Time_Execution bitte aus Speak_Execution herausfiltern als Sekunden
+//Time1_Execution = Time2_Introduction;
+//Time2_Execution = Time1_Execution + Time_Execution;
+Text_Details = getElementById("Details").value;
+Speak_Details = Textanalysis("speakingtime", Text_Details);
+//Time_Details bitte aus Speak_Details herausfiltern als Sekunden
+//Time1_Details = Time2_Execution;
+//Time2_Details = Time1_Details + Time_Details;
+Text_End = getElementById("End").value;
+Speak_End = Textanalysis("speakingtime", Text_End);
+//Time_End bitte aus Speak_End herausfiltern als Sekunden
+//Time1_End = Time2_Details;
+//Time2_End = Time1_End + Time_End;
+
+</script>
 
 </body>
 </html>
