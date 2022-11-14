@@ -19,6 +19,7 @@ script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptIma
 script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/userTasks.js
 script: https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js
 script: https://cdn.jsdelivr.net/gh/gelbeforelle/thesaurus@0.1.2-alpha/code.js
+script: https://www.youtube.com//s//player//c4225c42//www-widgetapi.vflset//www-widgetapi.js
 
 link: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/style.css
 link: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/print.css
@@ -33,32 +34,64 @@ comment:  This is a small tool, which will help the user to learn how to propper
 -->
 
 # Video Describer
+
+<textarea id="VideoID">Please enter YouTube URL here!</textArea>
+
+
+# Video Overview
+
+<script>
+       
+
+    	var source = document.getElementById("VideoID").value;
+        source = source.substring(source.indexOf("watch?v=")+8);
+        document.getElementById("VideoFrame").setAttribute("src", "https://www.youtube.com/embed/" + source);
+
+        var request = new XMLHttpRequest();
+        request.open("GET", "https://ytscriptgrabberserver.herokuapp.com/?" + "vidID=" + source + "&" + "vidLangCode=" + "en", false);
+        //request.responseType = 'json';
+        request.send( null );
+    
+        var text = request.responseText;
+    console.log(text);
+    console.log(text.split('{\"text\": '));
+    var textArray = text.split('{\"text\": ');
+    var subtitles = textArray.map(x => x.substring(1, x.indexOf('\"start\"')-3) + " ");
+    var times = textArray.map(x => x.substring(x.indexOf('\"start\"')+9, x.indexOf(', "duration": ')));
+    console.log(subtitles);
+    console.log(times);
+
+    var paragraph = document.getElementById("CC");
+    for(let i=1; i<subtitles.length; i++){
+        let span = document.createElement("span");
+        span.setAttribute("time", times[i]);
+        span.innerHTML = subtitles[i];
+        
+        paragraph.appendChild(span);
+    }
+</script>
+
 The goal of this short LiaScript-Course is to add the subtitles to a given video. In this first version you can follow the given structure. Under each text box you can see how long reading your text aloud would take. You should try to fit your text to the video so that it is not longer than the video and the texts fit to the actual video part.
 
- <iframe src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
-Important vocabulary
+
+
+
+<iframe id="VideoFrame"></iframe>
+
+<script>
+     
+
+        
+    </script>
+
+Subtitles
 ================
 
-Here are some words you may need for the following tasks:
+<p id="CC">
 
-* ammonium dichromate
-* ammonia
-* nitrogen
-* powder
-* solid
-* gas
-* sparks
-* to sparkle
-* to burn
-* chrome(VI/III) oxide
-* fireproof bowl
-* carcinogenic
-* dissociation
-* apparatus
-* to ignite
-* to oxidize
-* to reduce
+</p>
+
 
 Title
 ================
