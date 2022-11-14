@@ -554,6 +554,7 @@ Speak_End = Textanalysis("speakingtime", Text_End);
 //Time1_End = Time2_Details;
 //Time2_End = Time1_End + Time_End;
 
+//Button, der gleichzeitig Video startet und die Systemzeit einspeichert. Diese wird auf alle Zeiten der Paragraphen addiert, woraufhin der jeweils angezeigte Text im entsprechenden Zeitraum angezeigt und anschließend wieder ausgeblendet wird.
 </script>
 
 </body>
