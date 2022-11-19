@@ -422,7 +422,7 @@ function PrintDocument() {
 
 Now you can display the video with subtitles.
 
-<iframe src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+<iframe id = "Final_Video" src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
 <script>
     let Paragraph = class {
@@ -469,5 +469,24 @@ let introduction = Paragraph(Text_Introduction, Time1_Introduction, Time2_Introd
 let execution = Paragraph(Text_Execution, Time1_Execution, Time2_Execution);
 let details = Paragraph(Text_Details, Time1_Details, Time2_Details);
 let end = Paragraph(Text_End, Time1_End, Time2_End);
+
+function Play_Video(){
+    let btn2 = document.createElement("button");
+    btn2.innerHTML = "Play Video";
+    btn2.onclick = function() {
+        var currentDateTime = new Date();
+        console.log("Video is started at" + currentDateTime);
+        var resultInSeconds=currentDateTime.getTime() / 1000;
+        let t1 = attention.Time1 += resultInSeconds;
+        let t2 = introduction.Time1 += resultInSeconds;
+        let t3 = execution.Time1 += resultInSeconds;
+        let t4 = details.Time1 += resultInSeconds;
+        let t5 = end.Time1 += resultInSeconds;
+        let vid = document.getElementById("Final_Video");
+        vid.play();
+    }
+    document.getElementById(id).appendChild(btn2);
+}
+
 //Button, der gleichzeitig Video startet und die Systemzeit einspeichert. Diese wird auf alle Zeiten der Paragraphen addiert, woraufhin der jeweils angezeigte Text im entsprechenden Zeitraum angezeigt und anschließend wieder ausgeblendet wird.
 </script>
