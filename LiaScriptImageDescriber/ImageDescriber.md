@@ -14,8 +14,8 @@ narrator: US English Female
 
 
 
-script: /LiaScriptImageDescriber/imageDescriberFunctions.js
-script: /LiaScriptImageDescriber/ImageDescriber.js
+script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/imageDescriberFunctions.js
+script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/ImageDescriber.js
 script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/userTasks.js
 script: https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js
 script: https://cdn.jsdelivr.net/gh/gelbeforelle/thesaurus@0.1.2-alpha/code.js
@@ -126,14 +126,14 @@ On this page, you shall have an automated evaluation of your text below:
     let main = document.getElementById("TestPlace");
 
     function appendText(name){
-    let attention = document.getElementById(name);
-    let paragraph = document.createElement("p");
-    console.log("Appending: " + attention.value);
-    paragraph.innerHTML = attention.value;
+        let attention = document.getElementById(name);
+        let paragraph = document.createElement("p");
+        console.log("Appending: " + attention.value);
+        paragraph.innerHTML = attention.value;
 
-    analysis = analysis.concat(attention.value);
-    analysis = analysis.concat(" \n ");
-    //main.append(paragraph);
+        analysis = analysis.concat(attention.value);
+        analysis = analysis.concat(" \n ");
+        //main.append(paragraph);
     }
 
     appendText("AttentionTextArea");
@@ -433,31 +433,41 @@ Now you can display the video with subtitles.
         }
     };
 //console.log(Paragraph.name); not necessary, I think
-Text_Attention = getElementById("Attention").value;
-Speak_Attention = Textanalysis("speakingtime", Text_Attention);
-//Time_Attention aus Speak_Attention herausfiltern als Sekunden
-//Time1_Attention = 0;
-//Time2_Attention = Time1_Attention + Time_Attention;
-Text_Introduction = getElementById("Introduction").value;
-Speak_Introduction = Textanalysis("speakingtime", Text_Introduction);
-//Time_Introduction bitte aus Speak_Introduction herausfiltern als Sekunden
-//Time1_Introduction = Time2_Attention;
-//Time2_Introduction = Time1_Introduction + Time_Introduction;
-Text_Execution = getElementById("Execution").value;
-Speak_Execution = Textanalysis("speakingtime", Text_Execution);
-//Time_Execution bitte aus Speak_Execution herausfiltern als Sekunden
-//Time1_Execution = Time2_Introduction;
-//Time2_Execution = Time1_Execution + Time_Execution;
-Text_Details = getElementById("Details").value;
-Speak_Details = Textanalysis("speakingtime", Text_Details);
-//Time_Details bitte aus Speak_Details herausfiltern als Sekunden
-//Time1_Details = Time2_Execution;
-//Time2_Details = Time1_Details + Time_Details;
-Text_End = getElementById("End").value;
-Speak_End = Textanalysis("speakingtime", Text_End);
-//Time_End bitte aus Speak_End herausfiltern als Sekunden
-//Time1_End = Time2_Details;
-//Time2_End = Time1_End + Time_End;
 
+let Text_Attention = document.getElementById("Attention").value;
+let Speak_Attention = Textanalysis("speakingtime", Text_Attention);
+let Time_Attention = parseInt(Speak_Attention[46])*600 + parseInt(Speak_Attention[47])*60 + parseInt(Speak_Attention[49])*10 + parseInt(Speak_Attention[50]);
+let Time1_Attention = 0;
+let Time2_Attention = Time1_Attention + Time_Attention;
+
+let Text_Introduction = document.getElementById("Introduction").value;
+let Speak_Introduction = Textanalysis("speakingtime", Text_Introduction);
+let Time_Introduction = parseInt(Speak_Introduction[46])*600 + parseInt(Speak_Introduction[47])*60 + parseInt(Speak_Introduction[49])*10 + parseInt(Speak_Introduction[50]);
+let Time1_Introduction = Time2_Attention;
+let Time2_Introduction = Time1_Introduction + Time_Introduction;
+
+let Text_Execution = document.getElementById("Execution").value;
+let Speak_Execution = Textanalysis("speakingtime", Text_Execution);
+let Time_Execution = parseInt(Speak_Execution[46])*600 + parseInt(Speak_Execution[47])*60 + parseInt(Speak_Execution[49])*10 + parseInt(Speak_Execution[50]);
+let Time1_Execution = Time2_Introduction;
+let Time2_Execution = Time1_Execution + Time_Execution;
+
+let Text_Details = document.getElementById("Details").value;
+let Speak_Details = Textanalysis("speakingtime", Text_Details);
+let Time_Details = parseInt(Speak_Details[46])*600 + parseInt(Speak_Details[47])*60 + parseInt(Speak_Details[49])*10 + parseInt(Speak_Details[50]);
+let Time1_Details = Time2_Execution;
+let Time2_Details = Time1_Details + Time_Details;
+
+let Text_End = document.getElementById("End").value;
+let Speak_End = Textanalysis("speakingtime", Text_End);
+let Time_End = parseInt(Speak_End[46])*600 + parseInt(Speak_End[47])*60 + parseInt(Speak_End[49])*10 + parseInt(Speak_End[50]);
+let Time1_End = Time2_Details;
+let Time2_End = Time1_End + Time_End;
+
+let attention = Paragraph(Text_Attention, Time1_Attention, Time2_Attention);
+let introduction = Paragraph(Text_Introduction, Time1_Introduction, Time2_Introduction);
+let execution = Paragraph(Text_Execution, Time1_Execution, Time2_Execution);
+let details = Paragraph(Text_Details, Time1_Details, Time2_Details);
+let end = Paragraph(Text_End, Time1_End, Time2_End);
 //Button, der gleichzeitig Video startet und die Systemzeit einspeichert. Diese wird auf alle Zeiten der Paragraphen addiert, woraufhin der jeweils angezeigte Text im entsprechenden Zeitraum angezeigt und anschließend wieder ausgeblendet wird.
 </script>
