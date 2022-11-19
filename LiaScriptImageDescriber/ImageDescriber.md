@@ -39,6 +39,18 @@ comment:  This is a small tool, which will help the user to learn how to propper
 
 The goal of this short LiaScript-Course is to add the subtitles to a given video. In this first version you can follow the given structure. Under each text box you can see how long reading your text aloud would take. You should try to fit your text to the video so that it is not longer than the video and the texts fit to the actual video part.
 
+Task 0 - Title
+================
+
+To begin you should give your video a title that hints the topic before watching the video.
+
+<textarea id="TitleTextArea" oninput="TBonChange(this)">Please enter text here!</textArea>
+
+<div id="Title">If you can see this, the PlacePrinter() function has not loaded properly...</div>
+
+<script> PlaceSpeak("Title") </script>
+
+
 Task 1 - Attention  
 ================
         
