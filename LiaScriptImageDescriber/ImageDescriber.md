@@ -14,8 +14,8 @@ narrator: US English Female
 
 
 
-script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/imageDescriberFunctions.js
-script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/ImageDescriber.js
+script: /LiaScriptImageDescriber/imageDescriberFunctions.js
+script: /LiaScriptImageDescriber/ImageDescriber.js
 script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/userTasks.js
 script: https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js
 script: https://cdn.jsdelivr.net/gh/gelbeforelle/thesaurus@0.1.2-alpha/code.js
@@ -35,63 +35,9 @@ comment:  This is a small tool, which will help the user to learn how to propper
 
 # Video Describer
 
-<textarea id="VideoID">Please enter YouTube URL here!</textArea>
-
-
-# Video Overview
-
-<script>
-       
-
-    	var source = document.getElementById("VideoID").value;
-        source = source.substring(source.indexOf("watch?v=")+8);
-        document.getElementById("VideoFrame").setAttribute("src", "https://www.youtube.com/embed/" + source);
-
-        var request = new XMLHttpRequest();
-        request.open("GET", "https://ytscriptgrabberserver.herokuapp.com/?" + "vidID=" + source + "&" + "vidLangCode=" + "en", false);
-        //request.responseType = 'json';
-        request.send( null );
-    
-        var text = request.responseText;
-    console.log(text);
-    console.log(text.split('{\"text\": '));
-    var textArray = text.split('{\"text\": ');
-    var subtitles = textArray.map(x => x.substring(1, x.indexOf('\"start\"')-3) + " ");
-    var times = textArray.map(x => x.substring(x.indexOf('\"start\"')+9, x.indexOf(', "duration": ')));
-    console.log(subtitles);
-    console.log(times);
-
-    var paragraph = document.getElementById("CC");
-    for(let i=1; i<subtitles.length; i++){
-        let span = document.createElement("span");
-        span.setAttribute("time", times[i]);
-        span.innerHTML = subtitles[i];
-        
-        paragraph.appendChild(span);
-    }
-</script>
+<iframe src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
 The goal of this short LiaScript-Course is to add the subtitles to a given video. In this first version you can follow the given structure. Under each text box you can see how long reading your text aloud would take. You should try to fit your text to the video so that it is not longer than the video and the texts fit to the actual video part.
-
-
-
-
-
-<iframe id="VideoFrame"></iframe>
-
-<script>
-     
-
-        
-    </script>
-
-Subtitles
-================
-
-<p id="CC">
-
-</p>
-
 
 Title
 ================
@@ -115,14 +61,6 @@ Here are some examples you may use:
 <div id="Attention">If you can see this, the PlacePrinter() function has not loaded properly...</div>
 
 <script> PlaceSpeak("Attention") </script>
-
-<script>
-
-//alert(thesaurus["0"]);
-
-
-
-</script>
 
 
 Task - Introduction
@@ -157,10 +95,6 @@ When the experiment starts, you should tell the watcher what is happening during
 
 <script>
     PlaceSpeak("Execution");
-    //let txt3 = document.getElementById("graphTextArea3").value;
-    //function f3() {return Textanalysis("speakingtime", txt3);}
-    //let btn3 = document.getElementById("Btn3");
-    //btn3.onclick = f3();
 </script>
 
 Task - Details
@@ -174,16 +108,10 @@ Now that your watchers have seen the experiment, you should tell a few more deta
 
 <script>
     PlaceSpeak("Details");
-    /*let txt4 = document.getElementById("graphTextArea4").value;
-    function f4() {return Textanalysis("speakingtime", txt4);}
-    let btn4 = document.getElementById("Btn4");
-    btn4.onclick = f4();*/
 </script>
 
 Task - End
 =================
-
-
 
 At the absolute end of the video you can add your opinion on the experiment and thank for your watchers' interest.
 
@@ -193,15 +121,9 @@ At the absolute end of the video you can add your opinion on the experiment and 
 
 <script>
     PlaceSpeak("End");
-    /*let txt5 = document.getElementById("graphTextArea5").value;
-    function f5() {return Textanalysis("speakingtime", txt5);}
-    let btn5 = document.getElementById("Btn5");
-    btn5.onclick = f5();*/
 </script>
 
 # Text Analysis
-
-
 
 On this page, you shall have an automated evaluation of your text below:
 <div id="TestPlace"></div>
@@ -220,11 +142,6 @@ On this page, you shall have an automated evaluation of your text below:
     analysis = analysis.concat(" \n ");
     //main.append(paragraph);
     }
-
-    
-    
-    
-    
 
     appendText("AttentionTextArea");
     appendText("IntroductionTextArea");
@@ -298,8 +215,8 @@ On this page, you shall have an automated evaluation of your text below:
     console.log(reworkDiv);
     if(document.getElementById("TestPlace").querySelector(".rework")) document.getElementById("TestPlace").querySelector(".rework").remove();
     document.getElementById("TestPlace").appendChild(reworkDiv);
-
 </script>
+
 <script>  
         let array = Array.of("Attention", "Introduction", "Execution", "Details", "End");
         let fullText ="";
@@ -337,10 +254,6 @@ If you want to save your work, so you may come back later to it... please press 
 </div>
 
 <div id="Saver" class="example-screen">If you can see this, then PlaceSaver() function has not loaded</div>
-
-
-    
-
 
 <script>
 function PlaceSaver() {
@@ -392,8 +305,6 @@ Name:
 Matrikel Number:
 
 <input id="MatBox" oninput="OnNameChange(this)" class="example-screen">
-
-
 
 <div id="Printer" class="example-screen">If you can see this, the PlacePrinter() function has not loaded properly...</div>
 
@@ -482,8 +393,6 @@ function PrintDocument() {
     return paragraph;
     }
 
-    
-    
     let printTitle = document.createElement("h3");
     printTitle.innerHTML = document.getElementById("TitleTextArea").value;
 
@@ -494,8 +403,6 @@ function PrintDocument() {
     textDiv.appendChild(createParagraph("ExecutionTextArea"));
     textDiv.appendChild(createParagraph("DetailsTextArea"));
     textDiv.appendChild(createParagraph("EndTextArea"));
-
-    
 
     //Add all divs we want to have printed:
     
@@ -516,21 +423,20 @@ function PrintDocument() {
   </script>
 
 # Play Video with Subtitles
-
 <iframe src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
 <script>
     let Paragraph = class {
-        constructor(text, time) {
+        constructor(text, time1, time2) {
             this.text = text;
             this.time1 = time1;
             this.time2 = time2;
         }
     };
-//console.log(Paragraph.name);
+//console.log(Paragraph.name); not necessary, I think
 Text_Attention = getElementById("Attention").value;
 Speak_Attention = Textanalysis("speakingtime", Text_Attention);
-//Time_Attention bitte aus Speak_Attention herausfiltern als Sekunden
+//Time_Attention aus Speak_Attention herausfiltern als Sekunden
 //Time1_Attention = 0;
 //Time2_Attention = Time1_Attention + Time_Attention;
 Text_Introduction = getElementById("Introduction").value;
