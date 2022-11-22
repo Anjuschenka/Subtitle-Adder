@@ -46,11 +46,6 @@ To begin you should give your video a title that hints the topic before watching
 
 <textarea id="TitleTextArea" oninput="TBonChange(this)">Please enter text here!</textArea>
 
-<div id="Title">If you can see this, the PlacePrinter() function has not loaded properly...</div>
-
-<script> PlaceSpeak("Title") </script>
-
-
 Task 1 - Attention  
 ================
         
@@ -68,7 +63,7 @@ Here are some examples you may use:
 <script> PlaceSpeak("Attention") </script>
 
 
-Task - Introduction
+Task 2 - Introduction
 ==============
 
 Now that we have the attention of your watchers, you should give a few more details about the experiment. You might say something about certain safety instructions, about the used substances or about an imagethe reaction looks like. <br/>
@@ -85,7 +80,7 @@ Here are some examples on how to continue:
     PlaceSpeak("Introduction");
 </script>
 
-Task - Execution
+Task 3 - Execution
 ==============
 
 When the experiment starts, you should tell the watcher what is happening during the experiment. You can use phrases like
@@ -102,7 +97,7 @@ When the experiment starts, you should tell the watcher what is happening during
     PlaceSpeak("Execution");
 </script>
 
-Task - Details
+Task 4 - Details
 ==============
 
 Now that your watchers have seen the experiment, you should tell a few more details about substances or history of the experiment itself. But try to be brief. Yor text shall fit to the length of the video.
@@ -115,7 +110,7 @@ Now that your watchers have seen the experiment, you should tell a few more deta
     PlaceSpeak("Details");
 </script>
 
-Task - End
+Task 5 - End
 =================
 
 At the absolute end of the video you can add your opinion on the experiment and thank for your watchers' interest.
@@ -243,17 +238,6 @@ On this page, you shall have an automated evaluation of your text below:
 </script>
 
 # Print / Save it!
-
-<html>
-<head>
-    <style> 
-        .test {
-            display: none;
-        }
-    </style>
-</head>
-
-<body>
 
 <div class="example-screen">
 If you want to save your work, so you may come back later to it... please press the button below:
@@ -427,8 +411,6 @@ function PrintDocument() {
 
     PlacePrinter();
   </script>
-</body>
-</html>
 
 # Play Video with Subtitles
 
