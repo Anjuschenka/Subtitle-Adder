@@ -35,6 +35,24 @@ comment:  This is a small tool, which will help the user to learn how to propper
 
 # Video Describer
 
+Welcome to our tool to create subtitles for a video. For your first try, you will be given an experimental video and the structure for the subtitles. Your task is it to create the subtitles.
+
+If you have already created the subtitles and downloaded them, you can upload the file here and edit them on the next page or see the evaluation on the page "Text Analysis".
+
+<input type=”file” id = "subtitles">
+
+<script>
+    let fil = 0;
+    let btn = document.createElement("button");
+    btn.onclick = function(){
+        fil = 1;
+    }
+</script>
+
+Otherwise please go forward to the next page.
+
+# Subtitle Creator
+
 <iframe src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
 The goal of this short LiaScript-Course is to add the subtitles to a given video. In this first version you can follow the given structure. Under each text box you can see how long reading your text aloud would take. You should try to fit your text to the video so that it is not longer than the video and the texts fit to the actual video part.
@@ -257,6 +275,14 @@ function PlaceSaver() {
 }
 
 function DownloadFile() {
+    var Text = document.getElementById("Title").value + "\n\n" + document.getElementById("Attention").value + "\n\n" + document.getElementById("Introduction").value + "\n\n" + document.getElementById("Execution").value + "\n\n" + document.getElementById("Details").value + "\n\n" + document.getElementById("End").value;
+
+    const fs = require("fs");
+
+    fs.writeFile("Subtitles.txt", "Text", (err) => {
+        if (err) throw err;
+        console.log("File created");
+    });
     let dataheap = {
         "source" : ImgUrlLink,
         "text" : TBcontent
