@@ -39,7 +39,7 @@ Welcome to our tool to create subtitles for a video. For your first try, you wil
 
 If you have already created the subtitles and downloaded them, you can upload the file here and edit them on the next page or see the evaluation on the page "Text Analysis".
 
-<input type=”file” id = "subtitles">
+<input type=”file” id="subtitles">
 
 <script>
     let fil = 0;
@@ -265,45 +265,44 @@ If you want to save your work, so you may come back later to it... please press 
 
 <script>
 function PlaceSaver() {
+    var text = "";
+    function AppendText(name){
+        let attention = document.getElementById(name);
+        let paragraph = document.createElement("p");
+        console.log("Appending: " + attention.value);
+        paragraph.innerHTML = attention.value;
+
+        text = text.concat(attention.value);
+        text = text.concat("\n\n");
+        //main.append(paragraph);
+    }
+    function CreateText(){
+        AppendText("TitleTextArea");
+        AppendText("AttentionTextArea");
+        AppendText("IntroductionTextArea");
+        AppendText("ExecutionTextArea");
+        AppendText("DetailsTextArea");
+        AppendText("EndTextArea");
+    }
+    console.log(text)
+    var filename = "Subtitles.txt";
+
     let btn = document.createElement("button");
     btn.onclick = function() {
-        DownloadFile();
+        DownloadFile(filename, text);
     };
     btn.innerHTML = "Download here!";
     document.getElementById("Saver").innerHTML = "";
     document.getElementById("Saver").appendChild(btn);
 }
 
-function DownloadFile() {
-    var Text = document.getElementById("Title").value + "\n\n" + document.getElementById("Attention").value + "\n\n" + document.getElementById("Introduction").value + "\n\n" + document.getElementById("Execution").value + "\n\n" + document.getElementById("Details").value + "\n\n" + document.getElementById("End").value;
-
-    const fs = require("fs");
-
-    fs.writeFile("Subtitles.txt", "Text", (err) => {
-        if (err) throw err;
-        console.log("File created");
-    });
-    let dataheap = {
-        "source" : ImgUrlLink,
-        "text" : TBcontent
-    };
-
-    let json = JSON.stringify(dataheap);
-    json = [json];
-    let blob1 = new Blob(json, {type: "text/plain, charset=utf8"});
-    let isIE = false;
-    if(isIE) {
-        window.navigator.msSaveBlob(blob1, "ImageDiscriber.json");
-    } else {
-        let url = window.url || window.webkitURL;
-        link = url.createObjectURL(blob1);
-        var a = document.createElement("a");
-        a.download = "ImageDiscriber.json";
-        a.href = link;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    }
+function DownloadFile(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href','data:text/plain;charset=utf-8, ' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);    
 }
 
 PlaceSaver()
