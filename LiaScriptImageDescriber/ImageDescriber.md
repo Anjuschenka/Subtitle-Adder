@@ -39,17 +39,42 @@ Welcome to our tool to create subtitles for a video. For your first try, you wil
 
 If you have already created the subtitles and downloaded them, you can upload the file here and edit them on the next page or see the evaluation on the page "Text Analysis".
 
-<input type=”file” id="subtitles">
+Otherwise please go forward to the next page.
+
+<p>
+Please specify a file, or a set of files:<br>
+<input type="file" name="datafile" size="20" id="uploadfile">
+</p>
+
+<div id="Uploader" class="example-screen">If you can see this, then something has not loaded</div>
 
 <script>
-    let fil = 0;
-    let btn = document.createElement("button");
-    btn.onclick = function(){
-        fil = 1;
+    function readFile(input) {
+        let file = input.files[0];
+        let reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = function() {
+            console.log(reader.result);
+        };
+        reader.onerror = function() {
+            console.log(reader.error);
+        };
     }
+    let btn = document.createElement("button");
+    btn.onclick = function() {
+        var Dok = document.getElementById("uploadfile");
+        readFile(Dok);
+        /*console.log("Example to read line by line text");
+        var fs = require('fs');
+        fs.readFile(Dok, 'utf8', function(err, data){
+            // Display the file content
+            console.log(data);
+        });*/
+    };
+    btn.innerHTML = "Upload here!";
+    document.getElementById("Uploader").innerHTML = "";
+    document.getElementById("Uploader").appendChild(btn);
 </script>
-
-Otherwise please go forward to the next page.
 
 # Subtitle Creator
 
@@ -196,7 +221,7 @@ On this page, you shall have an automated evaluation of your text below:
     paragraph.appendChild(info);
     paragraph.appendChild(hline);
     reworkDiv.appendChild(paragraph);
-        reworkDiv.appendChild(title);
+    reworkDiv.appendChild(title);
 
     paragraph = document.createElement("p");
     
@@ -265,15 +290,14 @@ If you want to save your work, so you may come back later to it... please press 
 
 <script>
 function PlaceSaver() {
-    var text = "";
+    let text = "";
     function AppendText(name){
         let attention = document.getElementById(name);
         let paragraph = document.createElement("p");
         console.log("Appending: " + attention.value);
         paragraph.innerHTML = attention.value;
-
         text = text.concat(attention.value);
-        text = text.concat("\n\n");
+        text = text.concat("\n");
         //main.append(paragraph);
     }
     function CreateText(){
@@ -284,6 +308,9 @@ function PlaceSaver() {
         AppendText("DetailsTextArea");
         AppendText("EndTextArea");
     }
+
+    CreateText();
+
     console.log(text)
     var filename = "Subtitles.txt";
 
