@@ -58,6 +58,8 @@ Please specify a file, or a set of files:<br>
             console.log(res);
             let List = res.split("\n");
             console.log(List);
+            document.getElementById("TitleTextArea").value = List[1];
+            console.log(document.getElementById("TitleTextArea").value);
         };
         reader.onerror = function() {
             console.log(reader.error);
