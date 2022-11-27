@@ -54,7 +54,10 @@ Please specify a file, or a set of files:<br>
         let reader = new FileReader();
         reader.readAsText(file);
         reader.onload = function() {
-            console.log(reader.result);
+            let res = reader.result;
+            console.log(res);
+            let List = res.split("\n");
+            console.log(List);
         };
         reader.onerror = function() {
             console.log(reader.error);
@@ -64,12 +67,6 @@ Please specify a file, or a set of files:<br>
     btn.onclick = function() {
         var Dok = document.getElementById("uploadfile");
         readFile(Dok);
-        /*console.log("Example to read line by line text");
-        var fs = require('fs');
-        fs.readFile(Dok, 'utf8', function(err, data){
-            // Display the file content
-            console.log(data);
-        });*/
     };
     btn.innerHTML = "Upload here!";
     document.getElementById("Uploader").innerHTML = "";
