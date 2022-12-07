@@ -15,7 +15,7 @@ narrator: US English Female
 
 
 script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/imageDescriberFunctions.js
-script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/ImageDescriber.js
+script: /LiaScriptImageDescriber/ImageDescriber.js
 script: https://cdn.jsdelivr.net/gh/Anjuschenka/Subtitle-Adder@main/LiaScriptImageDescriber/userTasks.js
 script: https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js
 script: https://cdn.jsdelivr.net/gh/gelbeforelle/thesaurus@0.1.2-alpha/code.js
@@ -49,35 +49,7 @@ Please specify a file, or a set of files:<br>
 <div id="Uploader" class="example-screen">If you can see this, then something has not loaded</div>
 
 <script>
-    function readFile(input) {
-        let file = input.files[0];
-        let reader = new FileReader();
-        reader.readAsText(file);
-        reader.onload = function() {
-            let res = reader.result;
-            console.log(res);
-            let List = res.split("\n");
-            console.log(List);
-            document.getElementById("TitleTextArea").value = List[0];
-            document.getElementById("AttentionTextArea").value = List[1];
-            document.getElementById("IntroductionTextArea").value = List[2];
-            document.getElementById("ExecutionTextArea").value = List[3];
-            document.getElementById("DetailsTextArea").value = List[4];
-            document.getElementById("EndTextArea").value = List[5];
-            console.log(document.getElementById("TitleTextArea").value);
-        };
-        reader.onerror = function() {
-            console.log(reader.error);
-        };
-    }
-    let btn = document.createElement("button");
-    btn.onclick = function() {
-        var Dok = document.getElementById("uploadfile");
-        readFile(Dok);
-    };
-    btn.innerHTML = "Upload here!";
-    document.getElementById("Uploader").innerHTML = "";
-    document.getElementById("Uploader").appendChild(btn);
+    PlaceReader();
 </script>
 
 # Subtitle Creator

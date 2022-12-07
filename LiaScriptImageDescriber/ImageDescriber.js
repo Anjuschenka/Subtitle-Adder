@@ -12,12 +12,12 @@ function update(){
     let textDiv = document.getElementById("graphTextArea3");
     let text = textDiv.innerHTML;
     alert(text);
-    sp.innerHTML=Textanalysis("speakingtime", text);
+    sp.innerHTML = Textanalysis("speakingtime", text);
     console.log(Textanalysis("speakingtime", text));
     console.log(typeof(text));
 }
 
-function placeSelect() {
+/*function placeSelect() {
     let typeSelect = createTypeSelect(["Picture", "Graph", "Code"]);
     typeSelect.id = "TypeSelect";
     document.getElementById("TypeSelectorPlace").innerHTML = "";
@@ -26,9 +26,9 @@ function placeSelect() {
     if(intervallRunning == 1) return; 
     setInterval(fillTBwithInitialContent, 100);
     intervallRunning = 1;
-}
+}*/
 
-function placeLinkReader() {
+/*function placeLinkReader() {
     let LinkInput = document.createElement("input");
     let LaunchButton = document.createElement("button");
     //LaunchButton.onclick = function() { userTask(); }
@@ -42,15 +42,47 @@ function placeLinkReader() {
     document.getElementById("ImageLinkPlace").innerHTML = "";
     document.getElementById("ImageLinkPlace").appendChild(LinkInput);
     document.getElementById("ImageLinkPlace").appendChild(LaunchButton);
+}*/
+
+function readFile(input) {
+    let file = input.files[0];
+    let reader = new FileReader();
+    reader.readAsText(file);
+    reader.onload = function() {
+        let res = reader.result;
+        console.log(res);
+        let List = res.split("\n");
+        console.log(List);
+        document.getElementById("TitleTextArea").value = List[0];
+        document.getElementById("AttentionTextArea").value = List[1];
+        document.getElementById("IntroductionTextArea").value = List[2];
+        document.getElementById("ExecutionTextArea").value = List[3];
+        document.getElementById("DetailsTextArea").value = List[4];
+        document.getElementById("EndTextArea").value = List[5];
+    };
+    reader.onerror = function() {
+        console.log(reader.error);
+    };
 }
 
-function placeFileReader() {
+function PlaceReader(){
+    let btn = document.createElement("button");
+    btn.onclick = function() {
+        var Dok = document.getElementById("uploadfile");
+        readFile(Dok);
+    };
+    btn.innerHTML = "Upload here!";
+    document.getElementById("Uploader").innerHTML = "";
+    document.getElementById("Uploader").appendChild(btn);
+}
+
+/*function placeFileReader() {
     let fileSelector = CreateFileSelector();
     document.getElementById("FileReaderPlace").innerHTML = "";
     document.getElementById("FileReaderPlace").appendChild(fileSelector);
-}
+}*/
 
-function userTask() {
+/*function userTask() {
     switch(document.getElementById("TypeSelect").value) {
         case "Picture":
             return userTasks.graph();
@@ -59,7 +91,7 @@ function userTask() {
         case "Code": 
             return "ToDo Code";
     }
-}
+}*/
 
 function TBonChange(tb) {
     TBcontent[tb.id] = tb.value;
@@ -69,7 +101,7 @@ function OnNameChange(tb) {
     NameContent[tb.id] = tb.value;
 }
 
-function fillTBwithInitialContent() {
+/*function fillTBwithInitialContent() {
     let list = document.getElementsByTagName("textarea")
     for(let e of list) {
         if(TBcontent[e.id]==undefined) continue;
@@ -77,9 +109,9 @@ function fillTBwithInitialContent() {
         e.value = TBcontent[e.id];
         e.hasMYinit = true;
     }
-}
+}*/
 
-function TextEditor() {
+/*function TextEditor() {
     let placediv = document.getElementById("TextEditor");
     placediv.innerHTML = "";
 
@@ -104,7 +136,7 @@ function TextEditor() {
         }
         placediv.appendChild(textDiv);
     }
-}
+}*/
 
 /*function PlaceSpeak(txt) {
     let txtdiv = document.createElement("div");
@@ -123,7 +155,7 @@ function PlaceSpeak(id) {
     btn2.innerHTML = "Speaking Time";
     let newDiv = document.createElement("div");
     
-    newDiv.id=id + "SpeakingTime";
+    newDiv.id = id + "SpeakingTime";
     
     document.getElementById(id).appendChild(newDiv);
 
@@ -135,22 +167,20 @@ function PlaceSpeak(id) {
         let text = Textanalysis("speakingtime", txt);
         console.log(text);
         document.getElementById(id + "SpeakingTime").innerHTML=text;
-       
-        
     }
     document.getElementById(id).appendChild(btn2);
 }
 
-function TextCompress() {
+/*function TextCompress() {
     let str = "";
     let keys = Object.keys(TBcontent);
     for(let k of keys) {
         str = str + TBcontent[k] + "\n";
     }
     return str;
-}
+}*/
 
-function TestFULL(text) {
+/*function TestFULL(text) {
     let ret = {}
     ret["automatedReadabilityIndex"] = Textanalysis("automatedReadabilityIndex", text);
     ret["colemanLiauIndex"] = Textanalysis("colemanLiauIndex", text);
@@ -167,9 +197,9 @@ function TestFULL(text) {
     ret["readingTime"] = Textanalysis("readingTime", text);
     ret["speakingtime"] = Textanalysis("speakingtime", text);
     return ret;
-}
+}*/
 
-function PlaceTest() {
+/*function PlaceTest() {
     let txtdiv = document.createElement("div");
     txtdiv.innerHTML = TextCompress();
     let testdiv = document.createElement("div");
@@ -185,7 +215,7 @@ function PlaceTest() {
 
     document.getElementById("TestPlace").appendChild(testdiv);
     document.getElementById("TestPlace").appendChild(txtdiv);
-}
+}*/
 
 
 function PlacePrinter() {
