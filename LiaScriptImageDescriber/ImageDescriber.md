@@ -77,7 +77,7 @@ Here are some examples you may use:
             
 <textarea id="AttentionTextArea" oninput="TBonChange(this)">Please enter text here!</textArea>
 
-<div id="Attention">If you can see this, then PlaceSpeak() has not loaded properly...</div>
+<div id="Attention"></div>
 
 <script> PlaceSpeak("Attention") </script>
 
@@ -107,7 +107,7 @@ When the experiment starts, you should tell the watcher what is happening during
 * Then ... is added to ...
 * The mixture is heated over a bunsen burner / in an oil bath over a heating plate / ...
 
-<textarea id="ExecutionTextArea" oninput="TBonChange(this)" onchange="console.log(update(this.innerHTML))">Please enter text here!</textArea>
+<textarea id="ExecutionTextArea" oninput="TBonChange(this)" >Please enter text here!</textArea>
 
 <div id="Execution"></div>
 
