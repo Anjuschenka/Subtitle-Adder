@@ -217,6 +217,50 @@ function PlaceSpeak(id) {
     document.getElementById("TestPlace").appendChild(txtdiv);
 }*/
 
+function AppendText(name, text){
+    let attention = document.getElementById(name);
+    let paragraph = document.createElement("p");
+    console.log("Appending: " + attention.value);
+    paragraph.innerHTML = attention.value;
+    text = text.concat(attention.value);
+    text = text.concat("\n");
+    return text;
+}
+
+function CreateText(){
+    let text = "";
+    text = AppendText("TitleTextArea", text);
+    text = AppendText("AttentionTextArea", text);
+    text = AppendText("IntroductionTextArea", text);
+    text = AppendText("ExecutionTextArea", text);
+    text = AppendText("DetailsTextArea", text);
+    text = AppendText("EndTextArea", text);
+    return text;
+}
+
+function PlaceSaver() {
+    let text = CreateText();
+
+    console.log(text)
+    var filename = "Subtitles.txt";
+
+    let btn = document.createElement("button");
+    btn.onclick = function() {
+        DownloadFile(filename, text);
+    };
+    btn.innerHTML = "Download here!";
+    document.getElementById("Saver").innerHTML = "";
+    document.getElementById("Saver").appendChild(btn);
+}
+
+function DownloadFile(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href','data:text/plain;charset=utf-8, ' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);    
+}
 
 function PlacePrinter() {
     let btn = document.createElement("button");
@@ -229,8 +273,8 @@ function PlacePrinter() {
     //todo
 }
 
-function PrintDocument() {
-   /* let div_to_print = document.createElement("div");
+/*function PrintDocument() {
+    let div_to_print = document.createElement("div");
     let table = document.createElement("table");
     let tableRow1 = document.createElement("tr");
     //table row 1:
@@ -285,10 +329,10 @@ function PrintDocument() {
     document.body.innerHTML = printContent;
     window.print();
     document.body.innerHTML = orginalContents;
-    //PlacePrinter(); */
-}
+    //PlacePrinter();
+}*/
 
-function PlaceSaver() {
+/*function PlaceSaver() {
     let btn = document.createElement("button");
     btn.onclick = function() {
         DownloadFile();
@@ -320,4 +364,4 @@ function DownloadFile() {
         a.click();
         document.body.removeChild(a);
     }
-}
+}*/

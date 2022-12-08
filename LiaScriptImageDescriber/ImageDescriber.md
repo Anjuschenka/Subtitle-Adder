@@ -77,7 +77,7 @@ Here are some examples you may use:
             
 <textarea id="AttentionTextArea" oninput="TBonChange(this)">Please enter text here!</textArea>
 
-<div id="Attention">If you can see this, the PlacePrinter() function has not loaded properly...</div>
+<div id="Attention">If you can see this, then PlaceSpeak() has not loaded properly...</div>
 
 <script> PlaceSpeak("Attention") </script>
 
@@ -93,11 +93,10 @@ Here are some examples on how to continue:
 * The reaction shows a typical characteristic of the (substance) that ...
 
 <textarea id="IntroductionTextArea" oninput="TBonChange(this)">Please enter text here!</textArea>
+
 <div id="Introduction"></div>
 
-<script>
-    PlaceSpeak("Introduction");
-</script>
+<script> PlaceSpeak("Introduction"); </script>
 
 Task 3 - Execution
 ==============
@@ -112,9 +111,7 @@ When the experiment starts, you should tell the watcher what is happening during
 
 <div id="Execution"></div>
 
-<script>
-    PlaceSpeak("Execution");
-</script>
+<script> PlaceSpeak("Execution"); </script>
 
 Task 4 - Details
 ==============
@@ -125,9 +122,7 @@ Now that your watchers have seen the experiment, you should tell a few more deta
 
 <div id="Details"></div>
 
-<script>
-    PlaceSpeak("Details");
-</script>
+<script> PlaceSpeak("Details"); </script>
 
 Task 5 - End
 =================
@@ -138,9 +133,7 @@ At the absolute end of the video you can add your opinion on the experiment and 
 
 <div id="End"></div>
 
-<script>
-    PlaceSpeak("End");
-</script>
+<script> PlaceSpeak("End"); </script>
 
 # Text Analysis
 
@@ -159,7 +152,6 @@ On this page, you shall have an automated evaluation of your text below:
 
         analysis = analysis.concat(attention.value);
         analysis = analysis.concat(" \n ");
-        //main.append(paragraph);
     }
 
     appendText("AttentionTextArea");
@@ -264,53 +256,7 @@ If you want to save your work, so you may come back later to it... please press 
 
 <div id="Saver" class="example-screen">If you can see this, then PlaceSaver() function has not loaded</div>
 
-<script>
-function PlaceSaver() {
-    let text = "";
-    function AppendText(name){
-        let attention = document.getElementById(name);
-        let paragraph = document.createElement("p");
-        console.log("Appending: " + attention.value);
-        paragraph.innerHTML = attention.value;
-        text = text.concat(attention.value);
-        text = text.concat("\n");
-        //main.append(paragraph);
-    }
-    function CreateText(){
-        AppendText("TitleTextArea");
-        AppendText("AttentionTextArea");
-        AppendText("IntroductionTextArea");
-        AppendText("ExecutionTextArea");
-        AppendText("DetailsTextArea");
-        AppendText("EndTextArea");
-    }
-
-    CreateText();
-
-    console.log(text)
-    var filename = "Subtitles.txt";
-
-    let btn = document.createElement("button");
-    btn.onclick = function() {
-        DownloadFile(filename, text);
-    };
-    btn.innerHTML = "Download here!";
-    document.getElementById("Saver").innerHTML = "";
-    document.getElementById("Saver").appendChild(btn);
-}
-
-function DownloadFile(filename, text) {
-    var element = document.createElement('a');
-    element.setAttribute('href','data:text/plain;charset=utf-8, ' + encodeURIComponent(text));
-    element.setAttribute('download', filename);
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);    
-}
-
-PlaceSaver()
-
-</script>
+<script> PlaceSaver() </script>
 
 ---
 
@@ -329,9 +275,9 @@ Matrikel Number:
 <script>
 
     let TBcontent = {};
-let NameContent = {};
-let ImgUrlLink = "https://www.mebis.bayern.de/wp-content/uploads/sites/2/2015/05/Test_00.jpg";
-let intervallRunning = 0;
+    let NameContent = {};
+    let ImgUrlLink = "https://www.mebis.bayern.de/wp-content/uploads/sites/2/2015/05/Test_00.jpg";
+    let intervallRunning = 0;
 
 
 function PlacePrinter() {
