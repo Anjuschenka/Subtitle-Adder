@@ -138,27 +138,18 @@ At the absolute end of the video you can add your opinion on the experiment and 
 # Text Analysis
 
 On this page, you shall have an automated evaluation of your text below:
+
 <div id="TestPlace"></div>
 
 <script>
     let analysis = "";
     let main = document.getElementById("TestPlace");
 
-    function appendText(name){
-        let attention = document.getElementById(name);
-        let paragraph = document.createElement("p");
-        console.log("Appending: " + attention.value);
-        paragraph.innerHTML = attention.value;
-
-        analysis = analysis.concat(attention.value);
-        analysis = analysis.concat(" \n ");
-    }
-
-    appendText("AttentionTextArea");
-    appendText("IntroductionTextArea");
-    appendText("ExecutionTextArea");
-    appendText("DetailsTextArea");
-    appendText("EndTextArea");
+    analysis = AppendText("AttentionTextArea", analysis);
+    analysis = AppendText("IntroductionTextArea", analysis);
+    analysis = AppendText("ExecutionTextArea", analysis);
+    analysis = AppendText("DetailsTextArea", analysis);
+    analysis = AppendText("EndTextArea", analysis);
 
     console.log(analysis);
     let textArray = analysis.split(" ");
