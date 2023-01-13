@@ -101,49 +101,6 @@ function OnNameChange(tb) {
     NameContent[tb.id] = tb.value;
 }
 
-/*function fillTBwithInitialContent() {
-    let list = document.getElementsByTagName("textarea")
-    for(let e of list) {
-        if(TBcontent[e.id]==undefined) continue;
-        if(e.hasMYinit) continue;
-        e.value = TBcontent[e.id];
-        e.hasMYinit = true;
-    }
-}*/
-
-/*function TextEditor() {
-    let placediv = document.getElementById("TextEditor");
-    placediv.innerHTML = "";
-
-    let keys = Object.keys(TBcontent);
-
-    for(let k of keys) {
-        let textDiv = document.createElement("div");
-        textDiv.innerHTML = TBcontent[k];
-        textDiv.onclick = function() {
-            textDiv.innerHTML = "";
-            let editor = document.createElement("textarea");
-            editor.value = TBcontent[k];
-            textDiv.appendChild(editor);
-            editor.focus();
-            editor.oninput = function() {TBcontent[k] = editor.value;}
-            
-            editor.addEventListener("focusout", function() {
-                TBcontent[k] = editor.value;
-                textDiv.innerHTML = TBcontent[k];
-                textDiv.removeChild(editor);
-            });
-        }
-        placediv.appendChild(textDiv);
-    }
-}*/
-
-/*function PlaceSpeak(txt) {
-    let txtdiv = document.createElement("div");
-    txtdiv.value = Textanalysis("speakingtime", txt);
-    txtdiv.id = "SpeakDiv";
-}*/
-
 function PlaceSpeak(id) {
     if(document.getElementById(id).lastChild!=null) console.log(document.getElementById(id).lastChild.nodeType)
     //if(document.getElementById(id).hasChildNodes()) return;
@@ -171,59 +128,14 @@ function PlaceSpeak(id) {
     document.getElementById(id).appendChild(btn2);
 }
 
-/*function TextCompress() {
-    let str = "";
-    let keys = Object.keys(TBcontent);
-    for(let k of keys) {
-        str = str + TBcontent[k] + "\n";
-    }
-    return str;
-}*/
-
-/*function TestFULL(text) {
-    let ret = {}
-    ret["automatedReadabilityIndex"] = Textanalysis("automatedReadabilityIndex", text);
-    ret["colemanLiauIndex"] = Textanalysis("colemanLiauIndex", text);
-    ret["daleChallReadabilityScore"] = Textanalysis("daleChallReadabilityScore", text);
-    ret["fleschKincaidGrade"] = Textanalysis("fleschKincaidGrade", text);
-    ret["fleschReadingEase"] = Textanalysis("fleschReadingEase", text);
-    ret["gunningFog"] = Textanalysis("gunningFog", text);
-    ret["linsearWriteFormula"] = Textanalysis("linsearWriteFormula", text);
-    ret["readabilityConsensus"] = Textanalysis("readabilityConsensus", text);
-    ret["sentences"] = Textanalysis("sentences", text);
-    ret["smogIndex"] = Textanalysis("smogIndex", text);
-    ret["syllables"] = Textanalysis("syllables", text);
-    ret["words"] = Textanalysis("words", text);
-    ret["readingTime"] = Textanalysis("readingTime", text);
-    ret["speakingtime"] = Textanalysis("speakingtime", text);
-    return ret;
-}*/
-
-/*function PlaceTest() {
-    let txtdiv = document.createElement("div");
-    txtdiv.innerHTML = TextCompress();
-    let testdiv = document.createElement("div");
-    testdiv.id = "TestDiv"
-    let testObject = TestFULL(TextCompress());
-    let testKeys = Object.keys(testObject);
-
-    for(let test of testKeys) {
-        let testText = document.createElement("div");
-        testText.innerHTML = testObject[test];
-        testdiv.appendChild(testText);
-    }
-
-    document.getElementById("TestPlace").appendChild(testdiv);
-    document.getElementById("TestPlace").appendChild(txtdiv);
-}*/
-
 function AppendText(name, text){
     let attention = document.getElementById(name);
     let paragraph = document.createElement("p");
     console.log("Appending: " + attention.value);
     paragraph.innerHTML = attention.value;
     text = text.concat(attention.value);
-    text = text.concat("\n");
+    text = text.concat(" \n ");
+    document.getElementById("TestPlace").appendChild(paragraph);
     return text;
 }
 
@@ -235,6 +147,16 @@ function CreateText(){
     text = AppendText("ExecutionTextArea", text);
     text = AppendText("DetailsTextArea", text);
     text = AppendText("EndTextArea", text);
+    return text;
+}
+
+function PrepareText(text){
+    text = text.toLowerCase();
+    text = text.replace(".","");
+    text = text.replace(",","");
+    text = text.replace("?","");
+    text = text.replace("!","");
+    text = text.replace("-","");
     return text;
 }
 

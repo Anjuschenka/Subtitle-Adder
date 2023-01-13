@@ -48,9 +48,7 @@ Please specify a file, or a set of files:<br>
 
 <div id="Uploader" class="example-screen">If you can see this, then something has not loaded</div>
 
-<script>
-    PlaceReader();
-</script>
+<script> PlaceReader(); </script>
 
 # Subtitle Creator
 
@@ -142,25 +140,11 @@ On this page, you shall have an automated evaluation of your text below:
 <div id="TestPlace"></div>
 
 <script>
-    let analysis = "";
-    let main = document.getElementById("TestPlace");
-
-    analysis = AppendText("AttentionTextArea", analysis);
-    analysis = AppendText("IntroductionTextArea", analysis);
-    analysis = AppendText("ExecutionTextArea", analysis);
-    analysis = AppendText("DetailsTextArea", analysis);
-    analysis = AppendText("EndTextArea", analysis);
-
+    let analysis = CreateText();
     console.log(analysis);
+    let main = document.getElementById("TestPlace");
     let textArray = analysis.split(" ");
-    analysis = analysis.toLowerCase();
-    analysis = analysis.replace(".","");
-    analysis = analysis.replace(",","");
-    analysis = analysis.replace("?","");
-    analysis = analysis.replace("!","");
-    analysis = analysis.replace("-","");
-    //analysis.replace("the", "");
-
+    analysis = PrepareText(analysis);
     let array = analysis.split(" ");
     console.log(array);
 
@@ -184,8 +168,12 @@ On this page, you shall have an automated evaluation of your text below:
 
     paragraph = document.createElement("p");
     
+    //Anhängen von dem ganzen Text und zugehörige Analyse
+    alert(array.length);
     for(let i = 0; i<array.length; i++){
+        alert(array[i]);
         if(array[i] == "\n"){
+            alert("\\n");
             reworkDiv.appendChild(paragraph);
             paragraph = document.createElement("p");
         }
