@@ -140,14 +140,6 @@ On this page, you shall have an automated evaluation of your text below:
 <div id="TestPlace"></div>
 
 <script>
-    let analysis = CreateText();
-    console.log(analysis);
-    let main = document.getElementById("TestPlace");
-    let textArray = analysis.split(" ");
-    analysis = PrepareText(analysis);
-    let array = analysis.split(" ");
-    console.log(array);
-
     let paragraph = document.createElement("p");
     let reworkDiv = document.createElement("div");
     reworkDiv.setAttribute("class","rework")
@@ -169,11 +161,9 @@ On this page, you shall have an automated evaluation of your text below:
     paragraph = document.createElement("p");
     
     //Anhängen von dem ganzen Text und zugehörige Analyse
-    alert(array.length);
+    let array = PrepareText(CreateText()).split(" ");
     for(let i = 0; i<array.length; i++){
-        alert(array[i]);
         if(array[i] == "\n"){
-            alert("\\n");
             reworkDiv.appendChild(paragraph);
             paragraph = document.createElement("p");
         }
@@ -184,6 +174,7 @@ On this page, you shall have an automated evaluation of your text below:
             if(array[j] == array[i]) matches++;
         }
         let nextSpan = document.createElement("span");
+        let textArray = CreateText().split(" ");
         nextSpan.innerHTML = textArray[i] + " ";
         for(let j=0; j<array.length; j++) if(array[j] == array[i]) result++;
             console.log(array[i] +" at index " + i + " found " + result + " times");

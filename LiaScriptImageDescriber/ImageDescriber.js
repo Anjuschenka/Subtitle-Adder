@@ -76,12 +76,6 @@ function PlaceReader(){
     document.getElementById("Uploader").appendChild(btn);
 }
 
-/*function placeFileReader() {
-    let fileSelector = CreateFileSelector();
-    document.getElementById("FileReaderPlace").innerHTML = "";
-    document.getElementById("FileReaderPlace").appendChild(fileSelector);
-}*/
-
 /*function userTask() {
     switch(document.getElementById("TypeSelect").value) {
         case "Picture":
@@ -135,7 +129,7 @@ function AppendText(name, text){
     paragraph.innerHTML = attention.value;
     text = text.concat(attention.value);
     text = text.concat(" \n ");
-    document.getElementById("TestPlace").appendChild(paragraph);
+    //document.getElementById("TestPlace").appendChild(paragraph);
     return text;
 }
 
@@ -286,107 +280,3 @@ function PrintDocument() {
     w.print();
     w.close();
 }
-
-/*function PlacePrinter() {
-    let btn = document.createElement("button");
-    btn.innerHTML = "Print";
-    btn.onclick = function() {
-        PrintDocument();
-    }
-    document.getElementById("Printer").innerHTML = "";
-    document.getElementById("Printer").appendChild(btn);
-    //todo
-}*/
-
-/*function PrintDocument() {
-    let div_to_print = document.createElement("div");
-    let table = document.createElement("table");
-    let tableRow1 = document.createElement("tr");
-    //table row 1:
-    //image
-    let img = document.createElement("img");
-    img.id = "pr_Img"
-    img.src = ImgUrlLink;
-    let colImage = document.createElement("td");
-    colImage.appendChild(img);
-    
-    //author information
-    let AuthorName = document.createElement("div");
-    AuthorName.innerHTML = document.getElementById("NameBox").value;
-    let MatrNb = document.createElement("div");
-    MatrNb.innerHTML = document.getElementById("MatBox").value;
-
-    let authorInfo = document.createElement("td");  
-    authorInfo.appendChild(document.createTextNode("Name:"));
-    authorInfo.appendChild(AuthorName);
-    authorInfo.appendChild(document.createTextNode("Matrikl Nbr:"));
-    authorInfo.appendChild(MatrNb);
-    
-    colImage.style = "width: 50%"
-    authorInfo.style = "width: 50%"
-    tableRow1.appendChild(colImage);
-    tableRow1.appendChild(authorInfo);
-    //table
-    table.appendChild(tableRow1);
-
-    let tableRow2 = document.createElement("tr");
-    // table row 2:
-    let tb_div = document.createElement("td"); 
-    tb_div.colSpan = 2; 
-    let printKeys = Object.keys(TBcontent);
-    for(let printText of printKeys) {
-        temp = document.createElement("div")
-        let contentText = TBcontent[printText];
-        contentText = contentText.split("\n");
-        for(let txt of contentText) {
-            temp.appendChild(document.createTextNode(txt));
-            temp.appendChild(document.createElement("br"));
-        }
-        tb_div.appendChild(temp);
-        tb_div.appendChild(document.createElement("br"));
-    }
-    tableRow2.appendChild(tb_div);
-    table.appendChild(tableRow2);
-    div_to_print.appendChild(table);
-    //console.log(div_to_print.innerHTML);
-    let printContent = div_to_print.innerHTML;
-    let orginalContents = document.body.innerHTML;
-    document.body.innerHTML = printContent;
-    window.print();
-    document.body.innerHTML = orginalContents;
-    //PlacePrinter();
-}*/
-
-/*function PlaceSaver() {
-    let btn = document.createElement("button");
-    btn.onclick = function() {
-        DownloadFile();
-    };
-    btn.innerHTML = "Download here!";
-    document.getElementById("Saver").innerHTML = "";
-    document.getElementById("Saver").appendChild(btn);
-}
-
-function DownloadFile() {
-    let dataheap = {
-        "source" : ImgUrlLink,
-        "text" : TBcontent
-    };
-
-    let json = JSON.stringify(dataheap);
-    json = [json];
-    let blob1 = new Blob(json, {type: "text/plain, charset=utf8"});
-    let isIE = false;
-    if(isIE) {
-        window.navigator.msSaveBlob(blob1, "ImageDiscriber.json");
-    } else {
-        let url = window.url || window.webkitURL;
-        link = url.createObjectURL(blob1);
-        var a = document.createElement("a");
-        a.download = "ImageDiscriber.json";
-        a.href = link;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    }
-}*/
