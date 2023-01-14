@@ -154,6 +154,71 @@ function PrepareText(text){
     return text;
 }
 
+function Thesaurus(){
+    let paragraph = document.createElement("p");
+    let reworkDiv = document.createElement("div");
+    reworkDiv.setAttribute("class","rework")  
+    let head = document.createElement("h3");
+    head.innerHTML="Frequently used words are highlighted";
+    paragraph.appendChild(head);
+    let info = document.createElement("h4");
+    info.innerHTML = "Hover over a word to see synonyms. If a word can have different meanings, each is listed in a seperate line. Each meaning is marked as noun, adjective or verb in [square brackets].";
+    paragraph.appendChild(info);
+    let hline = document.createElement("hr");
+    paragraph.appendChild(hline);
+    reworkDiv.appendChild(paragraph);
+    let title = document.createElement("h3");
+    let titleText = document.getElementById("TitleTextArea").value;
+    title.innerHTML = titleText;
+    reworkDiv.appendChild(title);
+    paragraph = document.createElement("p");
+
+    let array = PrepareText(CreateText()).split(" ");
+    for(let i = 0; i<array.length; i++){
+        if(array[i] == "\n"){
+            reworkDiv.appendChild(paragraph);
+            paragraph = document.createElement("p");
+        }
+        else{
+        let matches = 0;
+        let result = 0;
+        for(let j = 0; j<i; j++){
+            if(array[j] == array[i]) matches++;
+        }
+        let nextSpan = document.createElement("span");
+        let textArray = CreateText().split(" ");
+        nextSpan.innerHTML = textArray[i] + " ";
+        for(let j=0; j<array.length; j++) if(array[j] == array[i]) result++;
+            console.log(array[i] +" at index " + i + " found " + result + " times");
+        if(result > array.length/20 && result > 1){
+            console.log(array[i] + " is frequently used");
+            nextSpan.setAttribute("class", "frequent");
+            nextSpan.setAttribute("style","background:red");
+            let currWord = array[i].toLowerCase();
+            if(Object.hasOwn(thesaurus, currWord)) nextSpan.setAttribute("title", thesaurus[currWord]);
+            else nextSpan.setAttribute("title", "No synonyms found!");
+        }
+        if(matches == 0) {
+            console.log(array[i] +" was found " + result + " times");
+        }
+
+        paragraph.appendChild(nextSpan);
+        }
+    }
+    console.log(reworkDiv);
+    if(document.getElementById("TestPlace").querySelector(".rework")) document.getElementById("TestPlace").querySelector(".rework").remove();
+    document.getElementById("TestPlace").appendChild(reworkDiv);
+}
+
+function ShowSpeak(){
+    let fullText = CreateText();
+    console.log("Speaking time is calculated for:");
+    console.log(fullText);
+    let text = Textanalysis("speakingtime", fullText);
+    console.log(text);
+    document.getElementById("TestPlace").innerHTML=text;
+}
+
 function PlaceSaver() {
     let text = CreateText();
 
