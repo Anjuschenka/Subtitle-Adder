@@ -259,6 +259,18 @@ function PlacePrinter() {
     //todo
 }
 
+function createParagraph(name){
+    let attention = document.getElementById(name);
+    let paragraph = document.createElement("p");
+    console.log("Appending: " + attention.value);
+    paragraph.innerHTML = attention.value;
+
+    //analysis = analysis.concat(attention.value);
+    //analysis = analysis.concat(" \n ");
+    //main.append(paragraph);
+    return paragraph;
+}
+
 function PrintDocument() {
     let w = window.open();
     let div_to_print = document.createElement("div");
@@ -312,18 +324,6 @@ function PrintDocument() {
 
     //Add text to the printing file:
     let textDiv = document.createElement("div");
-
-    function createParagraph(name){
-    let attention = document.getElementById(name);
-    let paragraph = document.createElement("p");
-    console.log("Appending: " + attention.value);
-    paragraph.innerHTML = attention.value;
-
-    //analysis = analysis.concat(attention.value);
-    //analysis = analysis.concat(" \n ");
-    //main.append(paragraph);
-    return paragraph;
-    }
 
     let printTitle = document.createElement("h3");
     printTitle.innerHTML = document.getElementById("TitleTextArea").value;

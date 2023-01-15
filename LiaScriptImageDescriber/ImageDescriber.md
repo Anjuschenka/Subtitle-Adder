@@ -183,49 +183,31 @@ Now you can display the video with subtitles.
 <iframe id = "Final_Video" src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
 
 <script>
-    let Paragraph = class {
-        constructor(text, time1, time2) {
-            this.text = text;
-            this.time1 = time1;
-            this.time2 = time2;
-        }
-    };
-
-let Text_Attention = document.getElementById("Attention").value;
-let Speak_Attention = Textanalysis("speakingtime", Text_Attention);
-let Time_Attention = parseInt(Speak_Attention[46])*600 + parseInt(Speak_Attention[47])*60 + parseInt(Speak_Attention[49])*10 + parseInt(Speak_Attention[50]);
-let Time1_Attention = 0;
-let Time2_Attention = Time1_Attention + Time_Attention;
-
-let Text_Introduction = document.getElementById("Introduction").value;
-let Speak_Introduction = Textanalysis("speakingtime", Text_Introduction);
-let Time_Introduction = parseInt(Speak_Introduction[46])*600 + parseInt(Speak_Introduction[47])*60 + parseInt(Speak_Introduction[49])*10 + parseInt(Speak_Introduction[50]);
-let Time1_Introduction = Time2_Attention;
-let Time2_Introduction = Time1_Introduction + Time_Introduction;
-
-let Text_Execution = document.getElementById("Execution").value;
-let Speak_Execution = Textanalysis("speakingtime", Text_Execution);
-let Time_Execution = parseInt(Speak_Execution[46])*600 + parseInt(Speak_Execution[47])*60 + parseInt(Speak_Execution[49])*10 + parseInt(Speak_Execution[50]);
-let Time1_Execution = Time2_Introduction;
-let Time2_Execution = Time1_Execution + Time_Execution;
-
-let Text_Details = document.getElementById("Details").value;
-let Speak_Details = Textanalysis("speakingtime", Text_Details);
-let Time_Details = parseInt(Speak_Details[46])*600 + parseInt(Speak_Details[47])*60 + parseInt(Speak_Details[49])*10 + parseInt(Speak_Details[50]);
-let Time1_Details = Time2_Execution;
-let Time2_Details = Time1_Details + Time_Details;
-
+let Text_Title = document.getElementById("TitleTextArea").value;
+let Text_Attention = document.getElementById("AttentionTextArea").value;
+let Text_Introduction = document.getElementById("IntroductionTextArea").value;
+let Text_Execution = document.getElementById("ExecutionTextArea").value;
+let Text_Details = document.getElementById("DetailsTextArea").value;
 let Text_End = document.getElementById("End").value;
-let Speak_End = Textanalysis("speakingtime", Text_End);
-let Time_End = parseInt(Speak_End[46])*600 + parseInt(Speak_End[47])*60 + parseInt(Speak_End[49])*10 + parseInt(Speak_End[50]);
-let Time1_End = Time2_Details;
-let Time2_End = Time1_End + Time_End;
 
-let attention = Paragraph(Text_Attention, Time1_Attention, Time2_Attention);
-let introduction = Paragraph(Text_Introduction, Time1_Introduction, Time2_Introduction);
-let execution = Paragraph(Text_Execution, Time1_Execution, Time2_Execution);
-let details = Paragraph(Text_Details, Time1_Details, Time2_Details);
-let end = Paragraph(Text_End, Time1_End, Time2_End);
+let Speak_Attention = Textanalysis("speakingtime", Text_Attention);
+let Speak_Introduction = Textanalysis("speakingtime", Text_Introduction);
+let Speak_Execution = Textanalysis("speakingtime", Text_Execution);
+let Speak_Details = Textanalysis("speakingtime", Text_Details);
+let Speak_End = Textanalysis("speakingtime", Text_End);
+
+let Time_Attention = parseInt(Speak_Attention[46])*600 + parseInt(Speak_Attention[47])*60 + parseInt(Speak_Attention[49])*10 + parseInt(Speak_Attention[50]);
+let Time_Introduction = parseInt(Speak_Introduction[46])*600 + parseInt(Speak_Introduction[47])*60 + parseInt(Speak_Introduction[49])*10 + parseInt(Speak_Introduction[50]);
+let Time_Execution = parseInt(Speak_Execution[46])*600 + parseInt(Speak_Execution[47])*60 + parseInt(Speak_Execution[49])*10 + parseInt(Speak_Execution[50]);
+let Time_Details = parseInt(Speak_Details[46])*600 + parseInt(Speak_Details[47])*60 + parseInt(Speak_Details[49])*10 + parseInt(Speak_Details[50]);
+let Time_End = parseInt(Speak_End[46])*600 + parseInt(Speak_End[47])*60 + parseInt(Speak_End[49])*10 + parseInt(Speak_End[50]);
+
+let Time0 = 0;
+let Time1 = Time0 + Time_Attention;
+let Time2 = Time1 + Time_Introduction;
+let Time3 = Time2 + Time_Execution;
+let Time4 = Time3 + Time_Details;
+let Time5 = Time4 + Time_End;
 
 function Play_Video(){
     let btn2 = document.createElement("button");
@@ -234,11 +216,12 @@ function Play_Video(){
         var currentDateTime = new Date();
         console.log("Video is started at" + currentDateTime);
         var resultInSeconds=currentDateTime.getTime() / 1000;
-        let t1 = attention.Time1 += resultInSeconds;
-        let t2 = introduction.Time1 += resultInSeconds;
-        let t3 = execution.Time1 += resultInSeconds;
-        let t4 = details.Time1 += resultInSeconds;
-        let t5 = end.Time1 += resultInSeconds;
+        let t0 = Time0 += resultInSeconds;
+        let t1 = Time1 += resultInSeconds;
+        let t2 = Time2 += resultInSeconds;
+        let t3 = Time3 += resultInSeconds;
+        let t4 = Time4 += resultInSeconds;
+        let t5 = Time5 += resultInSeconds;
         let vid = document.getElementById("Final_Video");
         vid.play();
     }
