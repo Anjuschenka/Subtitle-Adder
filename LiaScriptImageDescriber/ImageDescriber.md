@@ -190,7 +190,6 @@ Now you can display the video with subtitles.
             this.time2 = time2;
         }
     };
-//console.log(Paragraph.name); not necessary, I think
 
 let Text_Attention = document.getElementById("Attention").value;
 let Speak_Attention = Textanalysis("speakingtime", Text_Attention);

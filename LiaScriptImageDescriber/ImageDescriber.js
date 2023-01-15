@@ -53,12 +53,17 @@ function readFile(input) {
         console.log(res);
         let List = res.split("\n");
         console.log(List);
-        document.getElementById("TitleTextArea").value = List[0];
-        document.getElementById("AttentionTextArea").value = List[1];
-        document.getElementById("IntroductionTextArea").value = List[2];
-        document.getElementById("ExecutionTextArea").value = List[3];
-        document.getElementById("DetailsTextArea").value = List[4];
-        document.getElementById("EndTextArea").value = List[5];
+        if (document.getElementById("TitleTextArea")){
+            document.getElementById("TitleTextArea").value = List[0];
+            document.getElementById("AttentionTextArea").value = List[1];
+            document.getElementById("IntroductionTextArea").value = List[2];
+            document.getElementById("ExecutionTextArea").value = List[3];
+            document.getElementById("DetailsTextArea").value = List[4];
+            document.getElementById("EndTextArea").value = List[5];
+            alert("Upload successful");
+        } else {
+            alert("Upload not possible. Please go forward to next page and then try again (without reload).");
+        }
     };
     reader.onerror = function() {
         console.log(reader.error);
