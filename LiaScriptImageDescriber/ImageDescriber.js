@@ -357,7 +357,7 @@ function Play_Video(){
     let Text_Introduction = document.getElementById("IntroductionTextArea").value;
     let Text_Execution = document.getElementById("ExecutionTextArea").value;
     let Text_Details = document.getElementById("DetailsTextArea").value;
-    let Text_End = document.getElementById("End").value;
+    let Text_End = document.getElementById("EndTextArea").value;
 
     let Speak_Attention = Textanalysis("speakingtime", Text_Attention);
     let Speak_Introduction = Textanalysis("speakingtime", Text_Introduction);
@@ -365,7 +365,7 @@ function Play_Video(){
     let Speak_Details = Textanalysis("speakingtime", Text_Details);
     let Speak_End = Textanalysis("speakingtime", Text_End);
 
-    let Time_Attention = parseInt(Speak_Attention[46])*600 + parseInt(Speak_Attention[47])*60 + parseInt(Speak_Attention[49])*10 + parseInt(Speak_Attention[50]);
+    /*let Time_Attention = parseInt(Speak_Attention[46])*600 + parseInt(Speak_Attention[47])*60 + parseInt(Speak_Attention[49])*10 + parseInt(Speak_Attention[50]);
     let Time_Introduction = parseInt(Speak_Introduction[46])*600 + parseInt(Speak_Introduction[47])*60 + parseInt(Speak_Introduction[49])*10 + parseInt(Speak_Introduction[50]);
     let Time_Execution = parseInt(Speak_Execution[46])*600 + parseInt(Speak_Execution[47])*60 + parseInt(Speak_Execution[49])*10 + parseInt(Speak_Execution[50]);
     let Time_Details = parseInt(Speak_Details[46])*600 + parseInt(Speak_Details[47])*60 + parseInt(Speak_Details[49])*10 + parseInt(Speak_Details[50]);
@@ -393,5 +393,5 @@ function Play_Video(){
         let vid = document.getElementById("Final_Video");
         vid.play();
     }
-    document.getElementById(id).appendChild(btn2);
+    document.getElementById(id).appendChild(btn2);*/
 }
