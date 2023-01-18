@@ -46,7 +46,7 @@ Please specify a file, or a set of files:<br>
 <input type="file" name="datafile" size="20" id="uploadfile">
 </p>
 
-<div id="Uploader" class="example-screen">If you can see this, then something has not loaded</div>
+<div id="Uploader" class="example-screen">If you can see this, then the Upload-Function did not work</div>
 
 <script> PlaceReader(); </script>
 
@@ -180,6 +180,10 @@ Matrikel Number:
 
 Now you can display the video with subtitles.
 
-<iframe id = "Final_Video" src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></iframe>
+<video id = "Final_Video" src="https://video.tu-freiberg.de/media/embed?key=c49c659861d64aa2c74bc20540819db0&width=560&height=315&autoplay=false&controls=true&autolightsoff=false&loop=false&chapters=false&playlist=false&related=false&responsive=false&t=0" data-src="" class="iframeLoaded" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" allowtransparency="true" scrolling="no" aria-label="media embed code" style=""></video>
+
+<div id="Start"></div>
+
+<div id="Final_Text"></div>
 
 <script> Play_Video(); </script>

@@ -101,10 +101,11 @@ function OnNameChange(tb) {
 }
 
 function PlaceSpeak(id) {
-    if(document.getElementById(id).lastChild!=null) console.log(document.getElementById(id).lastChild.nodeType)
-    //if(document.getElementById(id).hasChildNodes()) return;
+    if(document.getElementById(id).lastChild!=null){
+        console.log(document.getElementById(id).lastChild.nodeType);
+    }
 
-    console.log(id)
+    console.log(id);
     document.getElementById(id).innerText = "";
 
     let btn2 = document.createElement("button");
@@ -351,7 +352,7 @@ function PrintDocument() {
     w.close();
 }
 
-function Play_Video(){
+function Show_Subtitles_at_certain_Times(){
     let Text_Title = document.getElementById("TitleTextArea").value;
     let Text_Attention = document.getElementById("AttentionTextArea").value;
     let Text_Introduction = document.getElementById("IntroductionTextArea").value;
@@ -370,28 +371,28 @@ function Play_Video(){
     let Time_Execution = parseInt(Speak_Execution[46])*600 + parseInt(Speak_Execution[47])*60 + parseInt(Speak_Execution[49])*10 + parseInt(Speak_Execution[50]);
     let Time_Details = parseInt(Speak_Details[46])*600 + parseInt(Speak_Details[47])*60 + parseInt(Speak_Details[49])*10 + parseInt(Speak_Details[50]);
     let Time_End = parseInt(Speak_End[46])*600 + parseInt(Speak_End[47])*60 + parseInt(Speak_End[49])*10 + parseInt(Speak_End[50]);
+    
+    Show_Text(Text_Title);
+    setTimeout(Show_Text(Text_Attention), Time_Title*1000);
+    setTimeout(Show_Text(Text_Introduction), Time_Attention*1000);
+    setTimeout(Show_Text(Text_Execution), Time_Introduction*1000);
+    setTimeout(Show_Text(Text_Details), Time_Execution*1000);
+    setTimeout(Show_Text(Text_End), Time_Details*1000);
+    setTimeout(Show_Text(Text_Title), Time_End*1000);
+}
 
-    let Time0 = 0;
-    let Time1 = Time0 + Time_Attention;
-    let Time2 = Time1 + Time_Introduction;
-    let Time3 = Time2 + Time_Execution;
-    let Time4 = Time3 + Time_Details;
-    let Time5 = Time4 + Time_End;
+function Show_Text(text){
+    let place = document.getElementById("Final_Text");
+    place.innerHTML = text;
+}
 
+function Play_Video(){
     let btn2 = document.createElement("button");
     btn2.innerHTML = "Play Video";
     btn2.onclick = function() {
-        var currentDateTime = new Date();
-        console.log("Video is started at" + currentDateTime);
-        var resultInSeconds=currentDateTime.getTime() / 1000;
-        let t0 = Time0 += resultInSeconds;
-        let t1 = Time1 += resultInSeconds;
-        let t2 = Time2 += resultInSeconds;
-        let t3 = Time3 += resultInSeconds;
-        let t4 = Time4 += resultInSeconds;
-        let t5 = Time5 += resultInSeconds;
+        Show_Subtitles_at_certain_Times();
         let vid = document.getElementById("Final_Video");
-        vid.play();
+        vid.play()
     }
-    document.getElementById("Final_Video").appendChild(btn2);
+    document.getElementById("Start").appendChild(btn2);
 }
