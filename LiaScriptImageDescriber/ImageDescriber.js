@@ -131,11 +131,9 @@ function PlaceSpeak(id) {
 function AppendText(name, text){
     let attention = document.getElementById(name);
     let paragraph = document.createElement("p");
-    console.log("Appending: " + attention.value);
     paragraph.innerHTML = attention.value;
     text = text.concat(attention.value);
     text = text.concat(" \n ");
-    //document.getElementById("TestPlace").appendChild(paragraph);
     return text;
 }
 
@@ -147,6 +145,7 @@ function CreateText(){
     text = AppendText("ExecutionTextArea", text);
     text = AppendText("DetailsTextArea", text);
     text = AppendText("EndTextArea", text);
+    console.log("Text created!");
     return text;
 }
 
@@ -157,29 +156,20 @@ function PrepareText(text){
     text = text.replace("?","");
     text = text.replace("!","");
     text = text.replace("-","");
+    text = text.split(" ");
     return text;
 }
 
 function Thesaurus(){
-    let paragraph = document.createElement("p");
-    let reworkDiv = document.createElement("div");
-    reworkDiv.setAttribute("class","rework")  
-    let head = document.createElement("h3");
-    head.innerHTML="Frequently used words are highlighted";
-    paragraph.appendChild(head);
-    let info = document.createElement("h4");
-    info.innerHTML = "Hover over a word to see synonyms. If a word can have different meanings, each is listed in a seperate line. Each meaning is marked as noun, adjective or verb in [square brackets].";
-    paragraph.appendChild(info);
-    let hline = document.createElement("hr");
-    paragraph.appendChild(hline);
-    reworkDiv.appendChild(paragraph);
-    let title = document.createElement("h3");
-    let titleText = document.getElementById("TitleTextArea").value;
-    title.innerHTML = titleText;
-    reworkDiv.appendChild(title);
+    let paragraph = document.getElementById("Paragraph");
+    let reworkDiv = document.getElementById("Object");
+
+    let title = document.getElementById("Title_new");
+    title.innerHTML = document.getElementById("TitleTextArea").value;
+
     paragraph = document.createElement("p");
 
-    let array = PrepareText(CreateText()).split(" ");
+    let array = PrepareText(CreateText());
     for(let i = 0; i<array.length; i++){
         if(array[i] == "\n"){
             reworkDiv.appendChild(paragraph);
@@ -372,8 +362,7 @@ function Show_Subtitles_at_certain_Times(){
     let Time_Details = parseInt(Speak_Details[46])*600 + parseInt(Speak_Details[47])*60 + parseInt(Speak_Details[49])*10 + parseInt(Speak_Details[50]);
     let Time_End = parseInt(Speak_End[46])*600 + parseInt(Speak_End[47])*60 + parseInt(Speak_End[49])*10 + parseInt(Speak_End[50]);
     
-    Show_Text(Text_Title);
-    setTimeout(Show_Text(Text_Attention), Time_Title*1000);
+    Show_Text(Text_Attention);
     setTimeout(Show_Text(Text_Introduction), Time_Attention*1000);
     setTimeout(Show_Text(Text_Execution), Time_Introduction*1000);
     setTimeout(Show_Text(Text_Details), Time_Execution*1000);
@@ -387,12 +376,13 @@ function Show_Text(text){
 }
 
 function Play_Video(){
+    //Prüfen, ob Button bereits vorhanden ist
     let btn2 = document.createElement("button");
     btn2.innerHTML = "Play Video";
     btn2.onclick = function() {
         Show_Subtitles_at_certain_Times();
-        let vid = document.getElementById("Final_Video");
-        vid.play()
+        //let vid = document.getElementById("Final_Video");
+        //vid.play()
     }
     document.getElementById("Start").appendChild(btn2);
 }

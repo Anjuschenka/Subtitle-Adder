@@ -139,6 +139,19 @@ On this page, you shall have an automated evaluation of your text below:
 
 <div id="TestPlace"></div>
 
+<div id="Object" class="rework">
+  <p id="Paragraph">
+    <h3 id="Formated_Title">
+      Frequently used words are highlighted
+    </h3>
+    <h4 id="Info">
+      Hover over a word to see synonyms. If a word can have different meanings, each is listed in a seperate line. Each meaning is marked as noun, adjective or verb in [square brackets].
+    </h4>
+    <hr>
+  </p>
+  <h3 id="Title_new"></h3>
+</div>
+
 <script> Thesaurus(); </script>
 
 <script> ShowSpeak(); </script>
@@ -187,3 +200,5 @@ Now you can display the video with subtitles.
 <div id="Final_Text"></div>
 
 <script> Play_Video(); </script>
+
+<script> Show_Text(document.getElementById("TitleTextArea").value); </script>
