@@ -104,18 +104,13 @@ function PlaceSpeak(id) {
     if(document.getElementById(id).lastChild!=null){
         console.log(document.getElementById(id).lastChild.nodeType);
     }
-
     console.log(id);
     document.getElementById(id).innerText = "";
-
     let btn2 = document.createElement("button");
     btn2.innerHTML = "Speaking Time";
     let newDiv = document.createElement("div");
-    
     newDiv.id = id + "SpeakingTime";
-    
     document.getElementById(id).appendChild(newDiv);
-
     btn2.onclick = function() {
         console.log(id + "TextArea")
         let txt = document.getElementById(id + "TextArea").value;
@@ -163,12 +158,9 @@ function PrepareText(text){
 function Thesaurus(){
     let paragraph = document.getElementById("Paragraph");
     let reworkDiv = document.getElementById("Object");
-
     let title = document.getElementById("Title_new");
     title.innerHTML = document.getElementById("TitleTextArea").value;
-
     paragraph = document.createElement("p");
-
     let array = PrepareText(CreateText());
     for(let i = 0; i<array.length; i++){
         if(array[i] == "\n"){
@@ -197,7 +189,6 @@ function Thesaurus(){
         if(matches == 0) {
             console.log(array[i] +" was found " + result + " times");
         }
-
         paragraph.appendChild(nextSpan);
         }
     }
@@ -217,10 +208,8 @@ function ShowSpeak(){
 
 function PlaceSaver() {
     let text = CreateText();
-
     console.log(text)
     var filename = "Subtitles.txt";
-
     let btn = document.createElement("button");
     btn.onclick = function() {
         DownloadFile(filename, text);
@@ -255,7 +244,6 @@ function createParagraph(name){
     let paragraph = document.createElement("p");
     console.log("Appending: " + attention.value);
     paragraph.innerHTML = attention.value;
-
     //analysis = analysis.concat(attention.value);
     //analysis = analysis.concat(" \n ");
     //main.append(paragraph);
@@ -274,26 +262,22 @@ function PrintDocument() {
     img.src = ImgUrlLink;
     let colImage = document.createElement("td");
     colImage.appendChild(img);
-    
     //author information
     let AuthorName = document.createElement("div");
     AuthorName.innerHTML = document.getElementById("NameBox").value;
     let MatrNb = document.createElement("div");
     MatrNb.innerHTML = document.getElementById("MatBox").value;
-
     let authorInfo = document.createElement("td");  
     authorInfo.appendChild(document.createTextNode("Name:"));
     authorInfo.appendChild(AuthorName);
     authorInfo.appendChild(document.createTextNode("Matrikl Nbr:"));
     authorInfo.appendChild(MatrNb);
-    
     colImage.style = "width: 50%"
     authorInfo.style = "width: 50%"
     tableRow1.appendChild(colImage);
     tableRow1.appendChild(authorInfo);
     //table
     table.appendChild(tableRow1);
-
     let tableRow2 = document.createElement("tr");
     // table row 2:
     let tb_div = document.createElement("td"); 
@@ -312,30 +296,22 @@ function PrintDocument() {
     }
     tableRow2.appendChild(tb_div);
     table.appendChild(tableRow2);
-
     //Add text to the printing file:
     let textDiv = document.createElement("div");
-
     let printTitle = document.createElement("h3");
     printTitle.innerHTML = document.getElementById("TitleTextArea").value;
-
     textDiv.appendChild(printTitle);
     textDiv.appendChild(createParagraph("AttentionTextArea"));
     textDiv.appendChild(createParagraph("IntroductionTextArea"));
     textDiv.appendChild(createParagraph("ExecutionTextArea"));
     textDiv.appendChild(createParagraph("DetailsTextArea"));
     textDiv.appendChild(createParagraph("EndTextArea"));
-
     //Add all divs we want to have printed:
-    
     div_to_print.appendChild(table);
     div_to_print.appendChild(textDiv);
-    
     //console.log(div_to_print.innerHTML);
     let printContent = div_to_print.innerHTML;
-
     //w.document.body.appendChild(document.getElementsByClassName("print")[0]);
-
     w.document.body.appendChild(div_to_print);
     //w.document.write(document.getElementsByClassName("print")[0].innerH‌​TML);
     w.print();
@@ -349,19 +325,16 @@ function Show_Subtitles_at_certain_Times(){
     let Text_Execution = document.getElementById("ExecutionTextArea").value;
     let Text_Details = document.getElementById("DetailsTextArea").value;
     let Text_End = document.getElementById("EndTextArea").value;
-
     let Speak_Attention = Textanalysis("speakingtime", Text_Attention);
     let Speak_Introduction = Textanalysis("speakingtime", Text_Introduction);
     let Speak_Execution = Textanalysis("speakingtime", Text_Execution);
     let Speak_Details = Textanalysis("speakingtime", Text_Details);
     let Speak_End = Textanalysis("speakingtime", Text_End);
-
     let Time_Attention = parseInt(Speak_Attention[46])*600 + parseInt(Speak_Attention[47])*60 + parseInt(Speak_Attention[49])*10 + parseInt(Speak_Attention[50]);
     let Time_Introduction = parseInt(Speak_Introduction[46])*600 + parseInt(Speak_Introduction[47])*60 + parseInt(Speak_Introduction[49])*10 + parseInt(Speak_Introduction[50]);
     let Time_Execution = parseInt(Speak_Execution[46])*600 + parseInt(Speak_Execution[47])*60 + parseInt(Speak_Execution[49])*10 + parseInt(Speak_Execution[50]);
     let Time_Details = parseInt(Speak_Details[46])*600 + parseInt(Speak_Details[47])*60 + parseInt(Speak_Details[49])*10 + parseInt(Speak_Details[50]);
     let Time_End = parseInt(Speak_End[46])*600 + parseInt(Speak_End[47])*60 + parseInt(Speak_End[49])*10 + parseInt(Speak_End[50]);
-    
     Show_Text(Text_Attention);
     setTimeout(Show_Text(Text_Introduction), Time_Attention*1000);
     setTimeout(Show_Text(Text_Execution), Time_Introduction*1000);
